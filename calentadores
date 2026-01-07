@@ -16,7 +16,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <meta name="description" content="Servicio técnico especializado para calentadores eléctricos y a gas en Bogotá. Recupera tu agua caliente hoy mismo con diagnósticos precisos.">
-    <meta property="og:image" content="https://res.cloudinary.com/djbcgcmma/image/upload/v1767664056/028bac8f-fb83-4dbc-af4d-2e9efe6fbc48_1_mai4m7.jpg">
+    <meta property="og:image" content="https://res.cloudinary.com/djbcgcmma/image/upload/v1767664757/51dc153b-38e3-4b29-8565-26fc23b4da77_2_1_bokgs5.jpg">
     <style>
         /* --- ESTILOS BASE --- */
         body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
@@ -480,4 +480,5 @@
         }
     </script>
 </body>
+
 </html>
