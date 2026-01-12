@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO TÉCNICO OPTIMIZADO -->
+    <title>TecnoFrosh | Reparación de Electrodomésticos en Bogotá y La Sabana</title>
+    <meta name="description" content="Servicio técnico experto en Bogotá y La Sabana. Reparación de lavadoras, neveras, calentadores y estufas a domicilio. Garantía de 12 meses. ¡Agenda tu revisión hoy con TecnoFrosh!">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tecnofrosh.github.io/">
+    
+    <!-- SEO LOCAL (Geo Tags) -->
+    <meta name="geo.region" content="CO-DC">
+    <meta name="geo.placename" content="Bogotá y Sabana">
+    <meta name="geo.position" content="4.710989;-74.072092">
+    <meta name="ICBM" content="4.710989, -74.072092">
+
+    <!-- Open Graph (Para redes sociales) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TecnoFrosh | Reparación de Lavadoras y Neveras en Bogotá y La Sabana">
+    <meta property="og:description" content="Técnicos certificados multimarca. Reparamos tu electrodoméstico en casa hoy mismo. Samsung, LG, Whirlpool y más.">
+    <meta property="og:url" content="https://tecnofrosh.github.io/">
+    <meta property="og:image" content="https://res.cloudinary.com/djbcgcmma/image/upload/v1767764373/Dise%C3%B1o_sin_t%C3%ADtulo_1_idfdn6.jpg">
+    <meta property="og:site_name" content="TecnoFrosh">
+
+    <!-- FAVICON -->
+    <link rel="icon" href="https://res.cloudinary.com/djbcgcmma/image/upload/v1767756119/Post_de_Facebook_Logo_Vibras_simple_amarillo-removebg-preview_uuajqa.png" type="image/png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS BASE Y HEADER --- */
+        body { overflow-x: hidden; } /* Prevenir scroll horizontal no deseado */
+        #main-header { transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease; }
+
+        /* --- HERO SLIDER --- */
+        .slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; transition: opacity 1.5s ease-in-out; z-index: 0;
+            background-size: cover; background-position: center;
+        }
+        .slide.active { opacity: 1; z-index: 1; }
+        .slide-overlay {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)); 
+            position: absolute; inset: 0;
+        }
+        
+        /* --- ANIMACIONES DE REVELADO (SISTEMA SEGURO) --- */
+        /* 1. Estado BASE: Visible. Si JS falla, esto asegura que el usuario vea el contenido. */
+        .reveal-element {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* 2. Estado PREPARACIÓN: JS agrega esto para ocultar y preparar la entrada */
+        .reveal-element.js-preparing-anim {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        /* 3. Estado ANIMANDO: JS cambia a esto cuando el elemento es visible */
+        .reveal-element.js-animating {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Delays escalonados para efectos en cascada */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+
+        /* --- EFECTOS HOVER Y TARJETAS --- */
+        .card-hover-effect { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card-hover-effect:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px -5px rgba(59, 130, 246, 0.4); 
+            border-color: #60a5fa; 
+        }
+
+        /* --- ANIMACIÓN FLOTANTE (Testimonios) --- */
+        @keyframes float-y {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float { animation: float-y 6s ease-in-out infinite; }
+        .animate-float-delay { animation: float-y 7s ease-in-out 1s infinite; }
+
+        /* --- ACORDEÓN --- */
+        .accordion-container { display: flex; width: 100%; height: 500px; gap: 1rem; }
+        .accordion-item {
+            position: relative; height: 100%; border-radius: 1.5rem; overflow: hidden;
+            cursor: pointer; flex: 1; transition: flex 0.7s cubic-bezier(0.05, 0.6, 0.4, 0.9);
+            filter: brightness(0.6) grayscale(20%);
+        }
+        .accordion-item.active {
+            flex: 5; filter: brightness(1) grayscale(0%);
+            box-shadow: 0 0 20px rgba(65, 165, 238, 0.5); border: 2px solid #41A5EE;
+        }
+        .accordion-content {
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            opacity: 0; transform: translateY(20px);
+            transition: all 0.5s ease-in-out; transition-delay: 0.3s; 
+        }
+        .accordion-item.active .accordion-content { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .accordion-container { flex-direction: column; height: 600px; gap: 0.75rem; }
+            .accordion-item { width: 100%; border-radius: 1rem; }
+            .accordion-item.active { flex: 3; }
+            .accordion-content { padding: 1.5rem; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); }
+            .accordion-content h3 { font-size: 1.25rem; }
+            .accordion-content p { font-size: 0.9rem; }
+        }
+
+        /* --- FOOTER ICONS --- */
+        #footer-electrofix .footer-icon { background: rgba(255, 255, 255, 0.05); transition: all 0.25s ease; }
+        #footer-electrofix .footer-icon:hover { transform: scale(1.18); box-shadow: 0 0 18px 6px rgba(56, 132, 255, 0.45); background: rgba(255, 255, 255, 0.15); }
+
+        /* --- WHATSAPP FLOTANTE --- */
+        #wa-button-container { position: fixed; bottom: 20px; right: 20px; z-index: 99999; pointer-events: none; }
+        #wa-button-container a { display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; background: #25D366; border-radius: 50%; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); text-decoration: none; pointer-events: all; transition: all 0.3s ease; position: relative; }
+        #wa-button-container a:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+        #wa-button-container svg { width: 32px; height: 32px; fill: white; }
+        #wa-button-container .wa-tooltip { position: absolute; right: 70px; background: #fff; color: #25D366; padding: 8px 15px; border-radius: 8px; font-size: 13px; font-weight: 600; white-space: nowrap; box-shadow: 0 2px 10px rgba(0,0,0,0.1); opacity: 0; pointer-events: none; transition: opacity 0.3s ease; font-family: 'Inter', sans-serif; }
+        #wa-button-container a:hover .wa-tooltip { opacity: 1; }
+        @keyframes wa-pulse { 0%, 100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); } 50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7); } }
+        #wa-button-container a { animation: wa-pulse 2s infinite; }
+        @media (max-width: 768px) { #wa-button-container { bottom: 15px; right: 15px; } #wa-button-container a { width: 55px; height: 55px; } #wa-button-container svg { width: 28px; height: 28px; } #wa-button-container .wa-tooltip { display: none; } }
+
+        /* --- SLIDER MARCAS --- */
+        .brands-slider-unique-section { background-color: #FFFFFF; padding: 100px 20px 80px; overflow: hidden; position: relative; }
+        .brands-slider-unique-container { max-width: 1400px; margin: 0 auto; }
+        .brands-slider-unique-title { text-align: center; font-size: 3.2rem; font-weight: 900; margin-bottom: 70px; letter-spacing: 3px; text-transform: uppercase; line-height: 1.2; }
+        .brands-slider-black-text { color: #000000; display: inline-block; }
+        .brands-slider-blue-text { color: #41A5EE; display: inline-block; text-shadow: 0 0 30px rgba(65, 165, 238, 0.3); }
+        .brands-slider-unique-wrapper { position: relative; width: 100%; max-width: 1400px; margin: 0 auto; overflow: hidden; padding: 20px 90px; }
+        .brands-slider-unique-track { display: flex; align-items: center; justify-content: space-evenly; gap: 60px; padding: 0; min-height: 120px; transition: opacity 0.5s ease; }
+        .brands-slider-unique-item { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; padding: 0 !important; margin: 0 !important; transition: all 0.4s; }
+        .brands-slider-unique-item:hover { transform: scale(1.15) translateY(-5px); }
+        .brands-slider-unique-item img { max-width: 180px; max-height: 90px; width: auto; height: auto; display: block; object-fit: contain; }
+        .brands-slider-unique-item:hover img { filter: brightness(1.1) drop-shadow(0 8px 15px rgba(65, 165, 238, 0.3)); }
+        .brands-slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: transparent; color: #41A5EE; border: none; width: 40px; height: 60px; font-size: 40px; font-weight: 300; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; opacity: 0.7; line-height: 1; transition: all 0.3s; }
+        .brands-slider-arrow:hover { color: #2E8BC0; transform: translateY(-50%) scale(1.2); opacity: 1; }
+        .brands-slider-prev { left: 25px; }
+        .brands-slider-next { right: 25px; }
+        .brands-slider-unique-dots { display: flex; justify-content: center; gap: 8px; margin-top: 50px; }
+        .brands-slider-dot-item { width: 40px; height: 4px; border-radius: 2px; background: #E5E7EB; cursor: pointer; position: relative; overflow: hidden; }
+        .brands-slider-dot-item::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, #41A5EE 0%, #2E8BC0 100%); transition: left 0.4s; }
+        .brands-slider-dot-item.active-dot { width: 50px; background: #e0e0e0; }
+        .brands-slider-dot-item.active-dot::before { left: 0; animation: progressBarBrandsUnique 10s linear; }
+        @keyframes progressBarBrandsUnique { from { left: -100%; } to { left: 100%; } }
+        @media (max-width: 1024px) { .brands-slider-unique-title { font-size: 2.5rem; } .brands-slider-unique-wrapper { padding: 20px 70px; } }
+        @media (max-width: 768px) { .brands-slider-unique-section { padding: 80px 20px 60px; } .brands-slider-unique-title { font-size: 1.8rem; margin-bottom: 50px; } .brands-slider-unique-wrapper { padding: 20px 55px; } .brands-slider-arrow { width: 35px; height: 50px; font-size: 35px; } .brands-slider-unique-track { gap: 40px; min-height: 100px; } .brands-slider-unique-item img { max-width: 130px; max-height: 75px; } .brands-slider-dot-item { width: 35px; height: 3px; } .brands-slider-dot-item.active-dot { width: 45px; } }
+
+        /* --- POPUP PROMOCIONAL --- */
+        #promo-popup { transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; }
+        .promo-popup-visible { opacity: 1 !important; visibility: visible !important; }
+        .promo-content { transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .promo-popup-visible .promo-content { transform: scale(1); }
+        .whatsapp-btn-pulse { animation: pulse-green 2s infinite; }
+        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+    </style>
+</head>
+<body class="bg-gray-50">
+<!-- 1. HEADER -->
+<nav id="main-header" class="fixed w-full z-50 top-0 text-white py-6 bg-transparent">
+    <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+        <!-- Logo a la izquierda -->
+        <a href="https://tecnofrosh.github.io/" class="flex flex-col items-start group">
+            <div class="flex items-center gap-2 text-3xl md:text-4xl font-black tracking-tighter transition-transform group-hover:scale-105">
+                <i data-lucide="wrench" class="w-7 h-7 md:w-8 md:h-8 text-blue-400"></i>
+                TecnoFrosh
+            </div>
+        </a>
+
+        <!-- Menú centrado para computadores -->
+        <div class="hidden md:flex items-center space-x-10 font-medium text-lg absolute left-1/2 transform -translate-x-1/2">
+            <a href="#" class="hover:text-blue-300 transition relative">Inicio</a>
+            
+            <!-- Menú desplegable Servicios -->
+            <div class="relative group">
+                <button class="flex items-center gap-1 hover:text-blue-300 transition focus:outline-none py-2">
+                    Servicios <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                </button>
+                <div class="absolute left-1/2 transform -translate-x-1/2 mt-0 w-48 bg-white text-slate-800 rounded-lg shadow-xl py-2 hidden group-hover:block border-t-4 border-blue-500 z-50">
+                    <a href="lavadoras.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 transition">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="waves" class="w-4 h-4"></i> Lavadoras
+                        </div>
+                    </a>
+                    <a href="neveras.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 transition">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="snowflake" class="w-4 h-4"></i> Neveras
+                        </div>
+                    </a>
+                    <a href="calentadores.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 transition">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="flame" class="w-4 h-4"></i> Calentadores
+                        </div>
+                    </a>
+                    <a href="estufas.html" class="block px-4 py-2 hover:bg-blue-50 hover:text-blue-600 transition">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="cooking-pot" class="w-4 h-4"></i> Estufas
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <a href="nosotros.html" class="hover:text-blue-300 transition relative">Nosotros</a>
+            <a href="marcaslujo.html" class="hover:text-blue-300 transition relative">Élite</a>
+        </div>
+
+        <!-- Botón de contacto a la derecha -->
+        <a href="tel:315132258" class="hidden md:flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-7 py-3 rounded-md transition shadow-lg shadow-blue-600/30 transform hover:-translate-y-0.5">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+            Contáctanos
+        </a>
+
+        <!-- Botón de menú móvil -->
+        <button id="menu-btn" class="md:hidden focus:outline-none text-white p-2 rounded-md hover:bg-white/10 transition" aria-label="Abrir Menú">
+            <i data-lucide="menu" class="w-8 h-8"></i>
+        </button>
+    </div>
+    
+    <!-- Menú Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-lg absolute w-full top-full left-0 border-t border-slate-800 shadow-2xl min-h-screen z-40">
+        <div class="flex flex-col p-8 space-y-6 text-center text-xl">
+            <a href="#" class="hover:text-blue-400 transition py-2">Inicio</a>
+            
+            <div class="flex flex-col items-center">
+                <button id="mobile-services-btn" class="flex items-center gap-2 hover:text-blue-400 transition py-2 focus:outline-none w-full justify-center">
+                    Servicios <i data-lucide="chevron-down" class="w-5 h-5 transition-transform" id="mobile-chevron"></i>
+                </button>
+                <div id="mobile-services-menu" class="hidden flex-col gap-4 bg-slate-800 w-full rounded-lg py-4 mt-2 border border-slate-700">
+                    <a href="lavadoras.html" class="block hover:text-blue-300 transition px-6 py-2">
+                        <i data-lucide="waves" class="w-4 h-4 mr-2 inline"></i> Lavadoras
+                    </a>
+                    <a href="neveras.html" class="block hover:text-blue-300 transition px-6 py-2">
+                        <i data-lucide="snowflake" class="w-4 h-4 mr-2 inline"></i> Neveras
+                    </a>
+                    <a href="calentadores.html" class="block hover:text-blue-300 transition px-6 py-2">
+                        <i data-lucide="flame" class="w-4 h-4 mr-2 inline"></i> Calentadores
+                    </a>
+                    <a href="estufas.html" class="block hover:text-blue-300 transition px-6 py-2">
+                        <i data-lucide="cooking-pot" class="w-4 h-4 mr-2 inline"></i> Estufas
+                    </a>
+                </div>
+            </div>
+            
+            <a href="nosotros.html" class="hover:text-blue-400 transition py-2">Nosotros</a>
+            <a href="marcaslujo.html" class="flex items-center justify-center gap-2 hover:text-blue-400 transition py-2">
+                <i data-lucide="crown" class="w-5 h-5 inline"></i> Élite
+            </a>
+            
+            <a href="tel:315132258" class="bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition mt-4 shadow-lg flex items-center justify-center gap-2">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+                Solicitar Técnico
+            </a>
+        </div>
+    </div>
+</nav>
+    <!-- 2. HERO -->
+    <!-- AJUSTE: min-h-[75vh] en móvil para ajustar espacio, md:h-[100vh] en desktop -->
+    <header class="relative min-h-[75vh] md:h-[100vh] w-full overflow-hidden bg-slate-900">
+
+        <!-- SLIDE 1 (H1 PRINCIPAL: ÚNICO H1 DE LA PÁGINA) -->
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?q=80&w=2070&auto=format&fit=crop');">
+            <div class="slide-overlay"></div>
+            <div class="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center md:justify-center">
+                <div class="max-w-3xl text-left text-white md:mt-16 reveal-element">
+                    <!-- TÍTULO PRINCIPAL OPTIMIZADO PARA SEO -->
+                    <h1 class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-3 md:mb-6">
+                        Reparamos Tus <br><span class="text-[#41A5EE]">Electrodomésticos</span>
+                    </h1>
+                    <!-- SUBTÍTULO CON KEYWORDS LOCALES -->
+                    <p class="text-sm sm:text-base md:text-2xl text-gray-200 mb-6 md:mb-10 max-w-2xl leading-relaxed">
+                        Recupera la tranquilidad de tu hogar con nuestro servicio especializado en <strong>Bogotá y La Sabana</strong>. Reparamos todas las marcas con garantía de 12 meses.
+                    </p>
+                    <!-- BOTONES: Contenedor flex para dos botones -->
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <a href="tel:315132258" class="inline-flex justify-center items-center bg-[#41A5EE] hover:bg-blue-600 text-white px-6 py-3 md:px-10 md:py-4 rounded-md font-bold text-sm md:text-xl transition shadow-lg shadow-[#41A5EE]/40 transform hover:scale-105">
+                            Agendar Revisión 
+                        </a>
+                        <a href="https://wa.me/57315132258?text=%C2%A1Hola!%20Necesito%20programar%20un%20Servicio%20T%C3%A9cnico%20a%20domicilio%20para%20un%20electrodom%C3%A9stico" target="_blank" class="inline-flex justify-center items-center bg-transparent border-2 border-white hover:bg-white/10 text-white px-6 py-3 md:px-10 md:py-4 rounded-md font-bold text-sm md:text-xl transition backdrop-blur-sm">
+                            <svg class="w-5 h-5 mr-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-6.9c-18.6-29.5-28.4-64.3-28.4-100.4 0-101.3 82.3-183.7 183.7-183.7 49 0 95.1 19.1 129.8 53.8 34.7 34.7 53.8 80.8 53.8 129.8 0 101.3-82.3 183.8-183.8 183.8zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-4-10.5-6.8z"/></svg> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2 (CAMBIO H1 -> H2 PARA MANTENER JERARQUÍA) -->
+        <div class="slide" style="background-image: url('https://res.cloudinary.com/dzc1wy6aq/image/upload/v1764956470/Whisk_4d5c4a59028c883886b45ae5daf84a17dr-_2__q9pl4x.webp');">
+            <div class="slide-overlay"></div>
+            <div class="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center md:justify-center">
+                 <div class="max-w-3xl text-left text-white md:mt-16">
+                    <h2 class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-3 md:mb-6">
+                        Tu Nevera <br><span class="text-cyan-400">Como Nueva</span>
+                    </h2>
+                    <p class="text-sm sm:text-base md:text-2xl text-gray-200 mb-6 md:mb-10 max-w-2xl leading-relaxed">
+                        Expertos en reparación de sistemas de refrigeración. Solucionamos problemas de enfriamiento, descongelación y fallos eléctricos en neveras.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <a href="tel:315132258" class="inline-flex justify-center items-center bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 md:px-10 md:py-4 rounded-md font-bold text-sm md:text-xl transition shadow-lg shadow-cyan-600/40 transform hover:scale-105">
+                            Solicitar Técnico 
+                        </a>
+                        <a href="https://wa.me/57315132258?text=%C2%A1Hola!%20Necesito%20programar%20un%20Servicio%20T%C3%A9cnico%20a%20domicilio%20para%20un%20electrodom%C3%A9stico" target="_blank" class="inline-flex justify-center items-center bg-transparent border-2 border-white hover:bg-white/10 text-white px-6 py-3 md:px-10 md:py-4 rounded-md font-bold text-sm md:text-xl transition backdrop-blur-sm">
+                            <svg class="w-5 h-5 mr-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-6.9c-18.6-29.5-28.4-64.3-28.4-100.4 0-101.3 82.3-183.7 183.7-183.7 49 0 95.1 19.1 129.8 53.8 34.7 34.7 53.8 80.8 53.8 129.8 0 101.3-82.3 183.8-183.8 183.8zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-4-10.5-6.8z"/></svg> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3 (CAMBIO H1 -> H2) -->
+        <div class="slide" style="background-image: url('https://res.cloudinary.com/djbcgcmma/image/upload/v1766903346/Peer_Review_Form_Website_in_Purple_Pink_Orange_Building_Blocks_Style_2_1_fvwvm1.jpg');">
+            <div class="slide-overlay"></div>
+            <div class="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center md:justify-center">
+                 <div class="max-w-3xl text-left text-white md:mt-16">
+                    <h2 class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-3 md:mb-6">
+                        Diagnóstico y <br><span class="text-indigo-400">Confianza</span>
+                    </h2>
+                    <p class="text-sm sm:text-base md:text-2xl text-gray-200 mb-6 md:mb-10 max-w-2xl leading-relaxed">
+                        Diagnóstico preciso con tecnología de punta. Nuestras herramientas modernas detectan fallas ocultas para reparaciones efectivas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <a href="tel:315132258" class="inline-flex justify-center items-center bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 md:px-10 md:py-4 rounded-md font-bold text-sm md:text-xl transition shadow-lg shadow-indigo-600/40 transform hover:scale-105">
+                            Hablar con un Asesor 
+                        </a>
+                        <a href="https://wa.me/57315132258?text=%C2%A1Hola!%20Necesito%20programar%20un%20Servicio%20T%C3%A9cnico%20a%20domicilio%20para%20un%20electrodom%C3%A9stico" target="_blank" class="inline-flex justify-center items-center bg-transparent border-2 border-white hover:bg-white/10 text-white px-6 py-3 md:px-10 md:py-4 rounded-md font-bold text-sm md:text-xl transition backdrop-blur-sm">
+                            <svg class="w-5 h-5 mr-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-6.9c-18.6-29.5-28.4-64.3-28.4-100.4 0-101.3 82.3-183.7 183.7-183.7 49 0 95.1 19.1 129.8 53.8 34.7 34.7 53.8 80.8 53.8 129.8 0 101.3-82.3 183.8-183.8 183.8zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-4-10.5-6.8z"/></svg> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4 (CAMBIO H1 -> H2) -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop');">
+            <div class="slide-overlay"></div>
+            <div class="relative z-10 container mx-auto px-6 h-full flex flex-col justify-center md:justify-center">
+                 <div class="max-w-4xl text-left text-white md:mt-16">
+                    <!-- TITULO H2 -->
+                    <h2 class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-3 md:mb-6">
+                        Especialistas en <br><span class="text-[#41A5EE]">+10 marcas premium</span>
+                    </h2>
+                    <!-- SUBTITULO -->
+                    <p class="text-sm sm:text-base md:text-2xl text-gray-200 mb-6 md:mb-10 max-w-3xl leading-relaxed">
+                        Sub Zero, Miele, Wolf, Thermador y más. Restauración certificada sin mover sus equipos.
+                    </p>
+                    <!-- BOTONES -->
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <a href="tel:315132258" class="inline-flex justify-center items-center bg-[#41A5EE] hover:bg-blue-600 text-white px-6 py-3 md:px-10 md:py-4 rounded-md font-bold text-sm md:text-xl transition shadow-lg shadow-[#41A5EE]/40 transform hover:scale-105">
+                            Consultar Especialista 
+                        </a>
+                        <a href="https://wa.me/57315132258?text=%C2%A1Hola!%20Necesito%20programar%20un%20Servicio%20T%C3%A9cnico%20a%20domicilio%20para%20un%20electrodom%C3%A9stico" target="_blank" class="inline-flex justify-center items-center bg-transparent border-2 border-white hover:bg-white/10 text-white px-6 py-3 md:px-10 md:py-4 rounded-md font-bold text-sm md:text-xl transition backdrop-blur-sm">
+                            <svg class="w-5 h-5 mr-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-6.9c-18.6-29.5-28.4-64.3-28.4-100.4 0-101.3 82.3-183.7 183.7-183.7 49 0 95.1 19.1 129.8 53.8 34.7 34.7 53.8 80.8 53.8 129.8 0 101.3-82.3 183.8-183.8 183.8zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-4-10.5-6.8z"/></svg> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+     <!-- SECCIÓN MARCAS SLIDER (CAMBIO H1 -> H2) -->
+    <section class="brands-slider-unique-section">
+        <div class="brands-slider-unique-container">
+            <h2 class="brands-slider-unique-title reveal-element">
+                <span class="brands-slider-black-text">TRABAJAMOS CON</span>
+                <span class="brands-slider-blue-text"> TODAS LAS MARCAS:</span>
+            </h2>
+
+            <div class="brands-slider-unique-wrapper reveal-element delay-200">
+                <button class="brands-slider-arrow brands-slider-prev" onclick="prevSlideBrandsUnique()" aria-label="Anterior">‹</button>
+                <button class="brands-slider-arrow brands-slider-next" onclick="nextSlideBrandsUnique()" aria-label="Siguiente">›</button>
+
+                <div class="brands-slider-unique-track" id="brandsSliderUniqueTrack">
+                    <!-- Los logos se cargan dinámicamente -->
+                </div>
+            </div>
+
+            <div class="brands-slider-unique-dots" id="brandsSliderUniqueDots"></div>
+        </div>
+    </section>
+
+    <!-- 3. SERVICIOS -->
+    <section id="servicios" class="py-24 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Nuestros <span class="text-[#41A5EE]">Servicios</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Ofrecemos reparación profesional en Bogotá y La Sabana.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group bg-white rounded-3xl p-8 text-center border-2 border-blue-500 relative cursor-pointer card-hover-effect reveal-element delay-100">
+                     <!-- Enlace "oculto" para usabilidad/SEO -->
+                    <a href="lavadoras.html" class="absolute inset-0 z-10" aria-label="Reparación de Lavadoras"></a>
+                    <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300"><i data-lucide="waves" class="w-10 h-10 text-blue-500 group-hover:text-white transition-colors duration-300"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Lavadoras</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Reparación y mantenimiento.</p>
+                </div>
+                <div class="group bg-white rounded-3xl p-8 text-center border-2 border-blue-500 relative cursor-pointer card-hover-effect reveal-element delay-200">
+                    <a href="neveras.html" class="absolute inset-0 z-10" aria-label="Reparación de Neveras"></a>
+                    <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300"><i data-lucide="snowflake" class="w-10 h-10 text-blue-500 group-hover:text-white transition-colors duration-300"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Neveras</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Sistemas de refrigeración.</p>
+                </div>
+                <div class="group bg-white rounded-3xl p-8 text-center border-2 border-blue-500 relative cursor-pointer card-hover-effect reveal-element delay-300">
+                    <a href="estufas.html" class="absolute inset-0 z-10" aria-label="Reparación de Estufas"></a>
+                    <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300"><i data-lucide="flame" class="w-10 h-10 text-blue-500 group-hover:text-white transition-colors duration-300"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Estufas</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Hornos eléctricos y a gas.</p>
+                </div>
+                <div class="group bg-white rounded-3xl p-8 text-center border-2 border-blue-500 relative cursor-pointer card-hover-effect reveal-element delay-400">
+                    <a href="calentadores.html" class="absolute inset-0 z-10" aria-label="Reparación de Calentadores"></a>
+                    <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300"><i data-lucide="thermometer" class="w-10 h-10 text-blue-500 group-hover:text-white transition-colors duration-300"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Calentadores</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Reparación a gas y eléctricos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SOBRE NOSOTROS -->
+    <section id="nosotros" class="py-24 bg-white overflow-hidden relative">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-50 z-0"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-cyan-50 rounded-full blur-3xl opacity-50 z-0"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="w-full lg:w-1/2 reveal-element">
+                    <div class="relative">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative z-10 transform transition hover:scale-[1.01] duration-500">
+                            <img src="https://res.cloudinary.com/dzc1wy6aq/image/upload/v1764958747/Dise%C3%B1o-sin-t%C3%ADtulo-_7__ixi1x2.webp" alt="Técnico Reparando Electrodoméstico" class="w-full h-auto object-cover">
+                            <div class="absolute bottom-6 right-6 bg-slate-900 text-white p-4 rounded-xl shadow-lg flex items-center gap-3 backdrop-blur-md bg-opacity-90">
+                                <div class="bg-blue-500 p-2 rounded-lg"><i data-lucide="award" class="w-6 h-6 text-white"></i></div>
+                                <div><p class="text-xs text-gray-300 uppercase font-bold">Experiencia</p><p class="text-xl font-bold">+10 Años</p></div>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-blue-100 rounded-3xl -z-10"></div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="space-y-8">
+                        <div class="reveal-element delay-100">
+                            <h2 class="text-blue-600 font-bold tracking-wide uppercase text-sm mb-2">Sobre Nosotros</h2>
+                            <h3 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6">Más que técnicos, somos <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">tu solución de confianza.</span></h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">En TecnoFrosh, nos dedicamos a devolverle la vida a tus electrodomésticos en Bogotá y La Sabana.</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 transition duration-300 reveal-element delay-200 group">
+                                <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition duration-300"><i data-lucide="users" class="w-7 h-7 text-blue-600 group-hover:text-white transition"></i></div>
+                                <div><h4 class="text-xl font-bold text-slate-900 mb-1">Equipo Profesional</h4><p class="text-gray-500">Técnicos capacitados continuamente.</p></div>
+                            </div>
+                             <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 transition duration-300 reveal-element delay-300 group">
+                                <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-indigo-600 transition duration-300"><i data-lucide="map-pin" class="w-7 h-7 text-indigo-600 group-hover:text-white transition"></i></div>
+                                <div><h4 class="text-xl font-bold text-slate-900 mb-1">Cobertura en Bogotá</h4><p class="text-gray-500">Cubrimos toda Bogotá y municipios de La Sabana.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. REPARACIONES -->
+    <section id="reparaciones" class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Reparaciones <span class="text-[#41A5EE]">Exitosas</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">Galería de trabajos recientes</p>
+            </div>
+            <div class="accordion-container reveal-element" id="accordion-gallery">
+                <div class="accordion-item active" style="background: url('https://res.cloudinary.com/djbcgcmma/image/upload/v1767663285/1706dd2e-783d-4bd3-8ff6-add806f1fab4_1_wklcgt.jpg') center/cover no-repeat;">
+                    <div class="accordion-content"><h3 class="text-2xl font-bold text-white mb-2">Nevera</h3><p class="text-gray-200">Restauración completa.</p></div>
+                </div>
+                <div class="accordion-item" style="background: url('https://res.cloudinary.com/dzc1wy6aq/image/upload/v1764953656/Dise%C3%B1o-sin-t%C3%ADtulo-_5__tskebf.webp') center/cover no-repeat;">
+                    <div class="accordion-content"><h3 class="text-2xl font-bold text-white mb-2">Nevera como Nueva</h3><p class="text-gray-200">Cambio de comprensor.</p></div>
+                </div>
+                <div class="accordion-item" style="background: url('https://res.cloudinary.com/dzc1wy6aq/image/upload/v1764952410/Dise%C3%B1o_sin_t%C3%ADtulo_1_lsjonf.jpg') center/cover no-repeat;">
+                    <div class="accordion-content"><h3 class="text-2xl font-bold text-white mb-2">Refrigeración Total</h3><p class="text-gray-200">Reparación de sistema.</p></div>
+                </div>
+                <div class="accordion-item" style="background: url('https://res.cloudinary.com/dzc1wy6aq/image/upload/v1764954628/Dise%C3%B1o-sin-t%C3%ADtulo-_6__1_pbmsyx.webp') center/cover no-repeat;">
+                    <div class="accordion-content"><h3 class="text-2xl font-bold text-white mb-2">Mantenimiento</h3><p class="text-gray-200">Limpieza profunda.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. COBERTURA (Anteriormente Venta) -->
+    <section id="venta" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <!-- Título -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
+                    Cobertura de Servicio en <span class="text-[#41A5EE]">Bogotá y La Sabana</span>
+                </h2>
+                <p class="text-gray-500 max-w-2xl mx-auto text-lg">
+                    Llegamos a tu hogar en todas las localidades y municipios aledaños.
+                </p>
+            </div>
+            
+            <!-- Contenido visual de cobertura -->
+            <div class="mt-10 flex flex-col lg:flex-row items-center gap-12">
+                 <!-- Mapa Visual -->
+                 <div class="w-full lg:w-1/2 relative rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-50 group">
+                    <img src="https://res.cloudinary.com/dzc1wy6aq/image/upload/v1764958066/Dise%C3%B1o_sin_t%C3%ADtulo_4_ynxevl.webp" alt="Mapa Cobertura Bogotá Servicio Técnico" class="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-slate-900/90 to-transparent p-6 pt-20">
+                        <div class="flex items-center gap-2 text-white font-bold text-xl mb-1">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-[#41A5EE]"></i>
+                            <span>Zona Urbana y Rural</span>
+                        </div>
+                        <p class="text-gray-300 text-sm">Desplazamiento inmediato con unidades móviles.</p>
+                    </div>
+                 </div>
+
+                 <!-- Lista de Zonas -->
+                 <div class="w-full lg:w-1/2 space-y-8">
+                     <div class="flex gap-4">
+                         <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0">
+                             <i data-lucide="compass" class="w-6 h-6 text-[#41A5EE]"></i>
+                         </div>
+                         <div>
+                             <h3 class="text-xl font-bold text-slate-900 mb-3">Zonas de Atención Principal</h3>
+                             <div class="grid grid-cols-2 gap-y-3 gap-x-4 text-gray-600">
+                                 <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i> Norte (Usaquén, Suba)</div>
+                                 <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i> Chapinero / Teusaquillo</div>
+                                 <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i> Occidente (Engativá, Fontibón)</div>
+                                 <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-green-500"></i> Sur (Kennedy, Puente Aranda)</div>
+                             </div>
+                         </div>
+                     </div>
+
+                     <div class="flex gap-4">
+                         <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0">
+                             <i data-lucide="truck" class="w-6 h-6 text-[#41A5EE]"></i>
+                         </div>
+                         <div>
+                             <h3 class="text-xl font-bold text-slate-900 mb-2">Municipios Aledaños</h3>
+                             <p class="text-gray-600 mb-2">Atendemos con cita previa sin recargo adicional en zonas cercanas.</p>
+                             <div class="flex flex-wrap gap-2">
+                                 <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm font-medium">Chía</span>
+                                 <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm font-medium">Cota</span>
+                                 <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm font-medium">Soacha</span>
+                                 <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm font-medium">La Calera</span>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+            
+            <!-- Llamado a acción -->
+            <div class="text-center mt-12">
+                <a href="tel:315132258" class="inline-flex items-center gap-2 bg-[#41A5EE] hover:bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg transition shadow-lg shadow-blue-500/30 transform hover:-translate-y-1">
+                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                    Solicitar Servicio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. TESTIMONIOS -->
+    <section id="testimonios" class="py-24 bg-slate-900 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+            <div class="absolute top-10 left-10 w-64 h-64 bg-blue-600 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-10 right-10 w-64 h-64 bg-cyan-600 rounded-full blur-[100px]"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Voces de <span class="text-[#41A5EE]">Confianza</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">La satisfacción de nuestros clientes es nuestra mejor garantía.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="testimonial-grid">
+                <div class="spotlight-card bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 group animate-float reveal-element delay-100 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-1 mb-6 text-yellow-400"><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i></div>
+                        <p class="text-gray-300 text-lg italic mb-6 leading-relaxed">"Excelente servicio. Mi lavadora LG dejó de funcionar y en menos de 24 horas ya estaba como nueva."</p>
+                        <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-xl">C</div><div><h4 class="text-white font-bold">Camila Torres</h4><p class="text-blue-400 text-sm">Cliente en Bogotá</p></div></div>
+                    </div>
+                </div>
+                <div class="spotlight-card bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 group animate-float-delay reveal-element delay-200 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-1 mb-6 text-yellow-400"><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i></div>
+                        <p class="text-gray-300 text-lg italic mb-6 leading-relaxed">"Compré una nevera de segunda mano y está perfecta. Se nota que hacen un trabajo de restauración impecable."</p>
+                        <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center text-white font-bold text-xl">A</div><div><h4 class="text-white font-bold">Andrés Felipe</h4><p class="text-blue-400 text-sm">Cliente en Chía</p></div></div>
+                    </div>
+                </div>
+                <div class="spotlight-card bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 group animate-float reveal-element delay-300 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-1 mb-6 text-yellow-400"><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i><i data-lucide="star" class="w-5 h-5 fill-current"></i></div>
+                        <p class="text-gray-300 text-lg italic mb-6 leading-relaxed">"Servicio rápido y confiable. Me gustó mucho que ofrecen garantía por escrito."</p>
+                        <div class="flex items-center gap-4"><div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center text-white font-bold text-xl">M</div><div><h4 class="text-white font-bold">Marta Rodríguez</h4><p class="text-blue-400 text-sm">Cliente en Soacha</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- 8. CONTACTO -->
+    <section id="contacto" class="pt-24 pb-6 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-10">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                        <span class="text-slate-900">Preguntas</span> <span class="text-blue-600">Frecuentes</span>
+                    </h2>
+                    <p class="text-gray-500">Resolvemos tus dudas más comunes sobre reparación de electrodomésticos</p>
+                </div>
+
+                <!-- ACORDEÓN FAQ -->
+                <div id="faq-accordion" class="space-y-4 mb-12">
+                    <!-- Item 1 -->
+                    <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full px-6 py-5 text-left bg-gray-50 hover:bg-blue-50 flex justify-between items-center transition-colors duration-300">
+                            <span class="font-bold text-slate-900 text-lg">¿Tienen garantía las reparaciones?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <div class="p-6 bg-white text-gray-600 border-t border-gray-100 leading-relaxed">
+                                Sí, ofrecemos garantía por escrito de hasta 12 meses tanto en la mano de obra como en los repuestos instalados, dependiendo del tipo de reparación realizada.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full px-6 py-5 text-left bg-gray-50 hover:bg-blue-50 flex justify-between items-center transition-colors duration-300">
+                            <span class="font-bold text-slate-900 text-lg">¿Cuál es el costo de la visita técnica?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <div class="p-6 bg-white text-gray-600 border-t border-gray-100 leading-relaxed">
+                                La revisión tiene un costo fijo que cubre el diagnóstico experto. Si decides realizar la reparación con nosotros, este valor se abona al costo total del servicio, ¡haciendo la revisión prácticamente GRATIS!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full px-6 py-5 text-left bg-gray-50 hover:bg-blue-50 flex justify-between items-center transition-colors duration-300">
+                            <span class="font-bold text-slate-900 text-lg">¿Atienden los domingos y festivos?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <div class="p-6 bg-white text-gray-600 border-t border-gray-100 leading-relaxed">
+                                Sí, entendemos que las emergencias no esperan. Contamos con servicio técnico disponible los 7 días de la semana, incluyendo domingos y festivos, previa programación de cita.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full px-6 py-5 text-left bg-gray-50 hover:bg-blue-50 flex justify-between items-center transition-colors duration-300">
+                            <span class="font-bold text-slate-900 text-lg">¿Qué marcas de electrodomésticos reparan?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <div class="p-6 bg-white text-gray-600 border-t border-gray-100 leading-relaxed">
+                                Somos expertos multimarca. Reparamos y hacemos mantenimiento a equipos Samsung, LG, Whirlpool, Mabe, Haceb, Electrolux, Challenger, Panasonic, entre otras.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                        <button class="faq-btn w-full px-6 py-5 text-left bg-gray-50 hover:bg-blue-50 flex justify-between items-center transition-colors duration-300">
+                            <span class="font-bold text-slate-900 text-lg">¿Cuánto tiempo demora el arreglo?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-blue-500 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <div class="p-6 bg-white text-gray-600 border-t border-gray-100 leading-relaxed">
+                                El 90% de las reparaciones se realizan en el mismo día y en la comodidad de su domicilio, gracias a que nuestros técnicos portan los repuestos más comunes en sus unidades móviles.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <p class="text-gray-500 mb-4 text-sm font-semibold uppercase tracking-wider">O contáctanos directamente por WhatsApp</p>
+                    <a href="https://wa.me/573151322258" target="_blank" class="inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full shadow-xl transform transition hover:-translate-y-1 hover:shadow-2xl text-xl w-full md:w-auto">
+                        <span>315 132 258</span>
+                        <svg class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-6.9c-18.6-29.5-28.4-64.3-28.4-100.4 0-101.3 82.3-183.7 183.7-183.7 49 0 95.1 19.1 129.8 53.8 34.7 34.7 53.8 80.8 53.8 129.8 0 101.3-82.3 183.8-183.8 183.8zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-4-10.5-6.8z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+<!-- 9. POR QUÉ TECNOFROSH-->
+<section id="porque-electrofix" class="pt-24 pb-16 bg-slate-900 relative overflow-hidden">
+    <!-- Elementos decorativos de fondo -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-40 pointer-events-none">
+        <div class="absolute -top-20 -left-20 w-80 h-80 bg-[#41A5EE]/20 rounded-full blur-[100px]"></div>
+        <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-[#41A5EE]/10 rounded-full blur-[100px]"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+        <!-- Título -->
+        <div class="text-center mb-16 reveal-element">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
+                <span class="text-white drop-shadow-lg">¿Por qué trabajar con </span>
+                <span class="text-[#41A5EE] drop-shadow-lg">TecnoFrosh?</span>
+            </h2>
+            <p class="text-white/90 max-w-2xl mx-auto text-lg drop-shadow">
+                Descubre las ventajas de elegirnos como tu socio de confianza en reparación de electrodomésticos
+            </p>
+        </div>
+        
+        <!-- Tarjetas de ventajas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Tarjeta 1 -->
+            <div class="bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 card-hover-effect reveal-element delay-100 border border-slate-700/50">
+                <div class="w-16 h-16 bg-[#41A5EE]/20 rounded-2xl flex items-center justify-center mb-6">
+                    <i data-lucide="shield-check" class="w-8 h-8 text-[#41A5EE]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Garantía Extendida</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Ofrecemos hasta 24 meses de garantía en todas nuestras reparaciones, respaldando nuestro trabajo con seguridad y confianza.
+                </p>
+            </div>
+            
+            <!-- Tarjeta 2 -->
+            <div class="bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 card-hover-effect reveal-element delay-200 border border-slate-700/50">
+                <div class="w-16 h-16 bg-[#41A5EE]/20 rounded-2xl flex items-center justify-center mb-6">
+                    <i data-lucide="clock" class="w-8 h-8 text-[#41A5EE]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Respuesta Inmediata</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Atención en menos de 24 horas. Nuestros técnicos están disponibles los 7 días de la semana, incluso domingos y festivos.
+                </p>
+            </div>
+            
+            <!-- Tarjeta 3 -->
+            <div class="bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 card-hover-effect reveal-element delay-300 border border-slate-700/50">
+                <div class="w-16 h-16 bg-[#41A5EE]/20 rounded-2xl flex items-center justify-center mb-6">
+                    <i data-lucide="users" class="w-8 h-8 text-[#41A5EE]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Técnicos Certificados</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Equipo de especialistas con más de 10 años de experiencia y capacitación continua en las últimas tecnologías.
+                </p>
+            </div>
+            
+            <!-- Tarjeta 4 -->
+            <div class="bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 card-hover-effect reveal-element delay-400 border border-slate-700/50">
+                <div class="w-16 h-16 bg-[#41A5EE]/20 rounded-2xl flex items-center justify-center mb-6">
+                    <i data-lucide="package-check" class="w-8 h-8 text-[#41A5EE]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Repuestos Originales</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Trabajamos exclusivamente con repuestos de alta calidad y originales para garantizar la durabilidad de cada reparación.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Llamado a la acción -->
+        <div class="text-center mt-16 reveal-element delay-500">
+            <a href="tel:315132258" class="inline-flex items-center gap-3 bg-[#41A5EE] hover:bg-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg transition shadow-lg shadow-[#41A5EE]/30 transform hover:-translate-y-1 border border-[#41A5EE]/30">
+                <i data-lucide="phone-call" class="w-5 h-5"></i>
+                Solicita tu servicio ahora
+            </a>
+            <p class="text-white/90 mt-6 text-sm drop-shadow">
+                Miles de clientes satisfechos confían en TecnoFrosh cada año
+            </p>
+        </div>
+    </div>
+</section>
+<!-- 10. FORMULARIO DE CONTACTO (CAMBIO H1 -> H2) -->
+<section id="formulario-contacto" class="py-16 bg-white relative overflow-hidden">
+    <!-- Elementos decorativos -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+        <div class="absolute top-10 right-10 w-64 h-64 bg-blue-50 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-10 left-10 w-64 h-64 bg-cyan-50 rounded-full blur-[100px]"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+        <!-- Título y subtítulo -->
+        <div class="text-center mb-12 reveal-element">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+                <span class="text-slate-900">Formulario de </span><span class="text-[#41A5EE]">contacto</span>
+            </h2>
+            <p class="text-slate-900 max-w-2xl mx-auto text-lg">
+                Completa el formulario y nos pondremos en contacto contigo a la brevedad.
+            </p>
+        </div>
+
+        <!-- Formulario -->
+        <div class="max-w-2xl mx-auto">
+            <form id="contactForm" class="space-y-6">
+                <!-- Campo Nombre Completo -->
+                <div class="reveal-element delay-100">
+                    <label for="nombre" class="block text-slate-700 font-medium mb-2">Nombre completo *</label>
+                    <input type="text" id="nombre" name="nombre" required
+                           class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#41A5EE] focus:ring-2 focus:ring-[#41A5EE]/30 outline-none transition placeholder:text-gray-400"
+                           placeholder="Ingresa tu nombre completo">
+                    <div class="text-red-500 text-sm mt-1 hidden" id="nombre-error">Este campo es obligatorio</div>
+                </div>
+
+                <!-- Campo Número de Teléfono -->
+                <div class="reveal-element delay-200">
+                    <label for="telefono" class="block text-slate-700 font-medium mb-2">Número de teléfono *</label>
+                    <input type="tel" id="telefono" name="telefono" required
+                           class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#41A5EE] focus:ring-2 focus:ring-[#41A5EE]/30 outline-none transition placeholder:text-gray-400"
+                           placeholder="Ej: 312 456 7890">
+                    <div class="text-red-500 text-sm mt-1 hidden" id="telefono-error">Este campo es obligatorio</div>
+                </div>
+
+                <!-- Campo Mensaje Opcional -->
+                <div class="reveal-element delay-300">
+                    <label for="mensaje" class="block text-slate-700 font-medium mb-2">Mensaje (opcional)</label>
+                    <textarea id="mensaje" name="mensaje" rows="4"
+                              class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#41A5EE] focus:ring-2 focus:ring-[#41A5EE]/30 outline-none transition resize-none placeholder:text-gray-400"
+                              placeholder="Cuéntanos sobre el problema de tu electrodoméstico..."></textarea>
+                </div>
+
+                <!-- Botón de Enviar -->
+                <div class="reveal-element delay-400">
+                    <button type="submit" id="submitButton"
+                            class="w-full bg-[#41A5EE] hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-xl transition shadow-lg shadow-[#41A5EE]/30 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[#41A5EE]/50 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span id="btnText">Enviar mensaje</span>
+                        <span id="btnLoading" class="hidden animate-spin ml-2">↻</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Mensaje de Éxito (oculto por defecto) -->
+            <div id="successMessage" class="hidden mt-8 p-6 bg-green-50 border border-green-200 rounded-2xl text-center reveal-element">
+                <div class="flex flex-col items-center">
+                    <i data-lucide="check-circle" class="w-16 h-16 text-green-500 mb-4"></i>
+                    <h3 class="text-xl font-bold text-green-800 mb-2">¡Mensaje enviado con éxito!</h3>
+                    <p class="text-green-600">Tu mensaje fue enviado con éxito. Nos pondremos en contacto contigo pronto.</p>
+                </div>
+            </div>
+
+            <!-- Botón de WhatsApp -->
+            <div class="mt-4 text-center reveal-element delay-500">
+                <p class="text-gray-500 mb-3 text-sm font-semibold uppercase tracking-wider">O contáctanos directamente por WhatsApp</p>
+                <a href="https://wa.me/57315132258" target="_blank" class="inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-xl transform transition hover:-translate-y-1 hover:shadow-2xl text-lg w-full md:w-auto">
+                    <span>315 132 258</span>
+                    <svg class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-6.9c-18.6-29.5-28.4-64.3-28.4-100.4 0-101.3 82.3-183.7 183.7-183.7 49 0 95.1 19.1 129.8 53.8 34.7 34.7 53.8 80.8 53.8 129.8 0 101.3-82.3 183.8-183.8 183.8zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-4-10.5-6.8z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!-- FOOTER -->
+        <!-- FOOTER -->
+    <footer id="footer-electrofix" class="bg-[#070d1b] text-gray-300 pt-16 pb-5 mt-6">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="flex items-center gap-2 text-3xl font-extrabold text-white mb-4">
+                        <i data-lucide="wrench" class="w-7 h-7 text-blue-400"></i>
+                        TecnoFrosh
+                    </div>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <h3 class="text-blue-400 tracking-widest font-semibold mb-6">SÍGUENOS</h3>
+                    <div class="flex gap-6 mb-6">
+                        <a href="https://wa.me/573151322258" target="_blank" class="footer-icon w-14 h-14 rounded-full flex items-center justify-center"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-8 h-8" alt="WhatsApp" loading="lazy"></a>
+                        <a href="https://facebook.com" target="_blank" class="footer-icon w-14 h-14 rounded-full flex items-center justify-center"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="w-8 h-8" alt="Facebook" loading="lazy"></a>
+                        <a href="https://instagram.com" target="_blank" class="footer-icon w-14 h-14 rounded-full flex items-center justify-center"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" class="w-8 h-8" alt="Instagram" loading="lazy"></a>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center md:items-end text-sm text-gray-400 gap-3">
+                    <a href="mailto:tecnofroshservicios@gmail.com" class="hover:text-blue-400 transition">tecnofroshservicios@gmail.com</a>
+                    <a href="tel:3151322258" class="hover:text-blue-400 transition"> telefono 315 132 258</a>
+                </div>
+            </div>
+            <div class="w-full border-t border-white/10 mt-8 mb-6"></div>
+            <p class="text-center text-gray-400 text-sm mb-4">© <span id="year"></span> TecnoFrosh. Todos los derechos reservados.</p>
+            <p class="text-center text-gray-500 text-xs">Diseñado con <span class="text-red-500">❤</span> para el mejor servicio técnico.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <div id="wa-button-container"></div>
+
+    <!-- POPUP PROMOCIONAL -->
+    <div id="promo-popup" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-500">
+        <div class="promo-content relative w-[90%] max-w-[450px] bg-white shadow-2xl overflow-hidden m-4 flex flex-col rounded-lg">
+            <button id="close-popup" class="absolute top-2 right-2 z-30 text-white hover:text-gray-200 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="relative h-32 w-full bg-blue-700 overflow-hidden flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop" alt="Técnico" class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-overlay">
+                <div class="relative z-10 flex flex-col items-center">
+                   <div class="flex items-center gap-2">
+                        <div class="flex items-center justify-center"><i data-lucide="home" class="w-10 h-10 text-white stroke-[2.5]"></i><div class="ml-[-12px] mt-[10px] bg-blue-700 rounded-full border border-white"><i data-lucide="wrench" class="w-4 h-4 text-white p-0.5"></i></div></div>
+                        <div class="flex flex-col leading-none"><span class="text-3xl font-black text-white tracking-tight" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">TECNOFROSH</span><span class="text-[10px] text-blue-200 font-bold tracking-[0.3em] uppercase text-center">BOGOTÁ Y SABANA</span></div>
+                   </div>
+                </div>
+            </div>
+            <div class="bg-[#41A5EE] w-full py-2 text-center shadow-md relative z-20">
+                <h3 class="text-xl md:text-2xl font-black text-white uppercase leading-none tracking-tight" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">SOLICITA TU REVISIÓN</h3>
+                <p class="text-white text-[10px] md:text-xs font-bold italic mt-0.5">HASTA 12 MESES DE GARANTÍA</p>
+            </div>
+            <div class="bg-gradient-to-b from-blue-700 to-blue-900 w-full py-5 flex justify-center relative">
+                <a href="https://wa.me/573151322258" target="_blank" class="whatsapp-btn-pulse flex items-center gap-2 bg-[#00e676] hover:bg-[#00c853] text-white px-5 py-2 rounded-full font-black text-2xl transition shadow-lg border-4 border-white transform hover:scale-105 no-underline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span class="tracking-wider" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">315 132 258</span>
+                </a>
+            </div>
+            
+            <!-- Texto final -->
+            <div class="bg-blue-900 w-full py-2 text-center">
+                <p class="text-white text-xs md:text-sm font-bold uppercase tracking-wide">¡SOLICITA TU DIAGNÓSTICO GRATIS HOY!</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SCHEMA JSON-LD: DATOS ESTRUCTURADOS PARA GOOGLE -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "TecnoFrosh",
+      "image": "https://res.cloudinary.com/djbcgcmma/image/upload/v1767756119/Post_de_Facebook_Logo_Vibras_simple_amarillo-removebg-preview_uuajqa.png",
+      "@id": "https://tecnofrosh.github.io/",
+      "url": "https://tecnofrosh.github.io/",
+      "telephone": "+573151322258",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bogotá",
+        "addressRegion": "Cundinamarca",
+        "addressCountry": "CO"
+      },
+      "areaServed": ["Bogotá", "Chía", "Cajicá", "Cota", "Soacha", "La Calera"],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 4.710989,
+        "longitude": -74.072092
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "07:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/tecnofrosh",
+        "https://www.instagram.com/tecnofrosh"
+      ],
+      "description": "Reparación experta de electrodomésticos en Bogotá y La Sabana. Lavadoras, neveras, estufas y calentadores. Servicio técnico garantizado a domicilio."
+    }
+    </script>
+
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- 1. CARGA SEGURA DE ICONOS ---
+        try {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        } catch (e) { console.error('Iconos:', e); }
+
+        // --- 2. HEADER Y AÑO ---
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.remove('bg-transparent', 'py-6');
+                header.classList.add('bg-slate-900', 'shadow-lg', 'py-4');
+            } else {
+                header.classList.add('bg-transparent', 'py-6');
+                header.classList.remove('bg-slate-900', 'shadow-lg', 'py-4');
+            }
+        });
+        const yearSpan = document.getElementById("year");
+        if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+        // --- 3. MENU MÓVIL ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        });
+        const mobileServicesBtn = document.getElementById('mobile-services-btn');
+        const mobileServicesMenu = document.getElementById('mobile-services-menu');
+        mobileServicesBtn?.addEventListener('click', () => {
+            mobileServicesMenu.classList.toggle('hidden');
+        });
+
+        // --- 4. HERO SLIDER (INDEPENDIENTE) ---
+        const heroSlides = document.querySelectorAll('.slide');
+        let currentHeroSlide = 0;
+        function nextHeroSlide() {
+            if (!heroSlides.length) return;
+            heroSlides[currentHeroSlide].classList.remove('active');
+            currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+            heroSlides[currentHeroSlide].classList.add('active');
+        }
+        if(heroSlides.length > 0) setInterval(nextHeroSlide, 5000);
+
+        // --- 5. ANIMACIONES REVEAL (SISTEMA DE SEGURIDAD) ---
+        // Explicación: Los elementos son visibles por CSS. Solo si el JS funciona,
+        // les agregamos la clase .js-preparing-anim para ocultarlos momentáneamente
+        // y luego el observer los revela. Esto evita que se queden ocultos si JS falla.
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('js-preparing-anim');
+                        entry.target.classList.add('js-animating');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            const revealElements = document.querySelectorAll('.reveal-element');
+            revealElements.forEach(el => {
+                // Solo ocultamos si vamos a animar inmediatamente
+                el.classList.add('js-preparing-anim');
+                revealObserver.observe(el);
+            });
+        }
+
+        // --- 6. ACORDEÓN ---
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        if(accordionItems.length > 0) {
+            let accIndex = 0;
+            const updateAccordion = () => {
+                accordionItems.forEach(item => item.classList.remove('active'));
+                accordionItems[accIndex].classList.add('active');
+                accIndex = (accIndex + 1) % accordionItems.length;
+            };
+            let accInterval = setInterval(updateAccordion, 3000);
+            accordionItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    clearInterval(accInterval);
+                    accordionItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                    accIndex = index;
+                });
+            });
+        }
+
+        // --- 7. CARRUSEL PRODUCTOS (SOLO MOVIL - MEJORADO) ---
+        const productTrack = document.getElementById('product-track');
+        const productDotsContainer = document.getElementById('product-dots');
+        
+        if(productTrack && productDotsContainer) {
+            let prodIndex = 0;
+            let productInterval;
+            const totalSlides = 4; // Asumimos 4 slides basados en el HTML
+
+            // Función para actualizar visualmente (slide + dots)
+            const updateCarouselVisuals = () => {
+                // Mover track
+                if (window.innerWidth < 768) {
+                    productTrack.style.transform = 'translateX(-' + (prodIndex * 100) + '%)';
+                } else {
+                    productTrack.style.transform = 'none';
+                }
+
+                // Actualizar Dots
+                const dots = productDotsContainer.children;
+                for (let i = 0; i < dots.length; i++) {
+                    if (i === prodIndex) {
+                        dots[i].classList.remove('bg-gray-300');
+                        dots[i].classList.add('bg-blue-600');
+                    } else {
+                        dots[i].classList.add('bg-gray-300');
+                        dots[i].classList.remove('bg-blue-600');
+                    }
+                }
+            };
+
+            const nextProductSlide = () => {
+                prodIndex = (prodIndex + 1) % totalSlides;
+                updateCarouselVisuals();
+            };
+            
+            const prevProductSlide = () => {
+                prodIndex = (prodIndex - 1 + totalSlides) % totalSlides;
+                updateCarouselVisuals();
+            };
+
+            // Iniciar auto-play
+            productInterval = setInterval(nextProductSlide, 5000);
+
+            // Resize handler
+            window.addEventListener('resize', updateCarouselVisuals);
+
+            // --- SWIPE LOGIC ---
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            productTrack.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                clearInterval(productInterval); // Pausar al tocar
+            }, {passive: true});
+
+            productTrack.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                productInterval = setInterval(nextProductSlide, 5000); // Reiniciar
+            }, {passive: true});
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) { // Deslizar izquierda (Siguiente)
+                    nextProductSlide();
+                }
+                if (touchEndX > touchStartX + 50) { // Deslizar derecha (Anterior)
+                    prevProductSlide();
+                }
+            }
+        }
+
+        // --- 8. BOTÓN WHATSAPP ---
+        const waContainer = document.getElementById('wa-button-container');
+        if (waContainer) {
+            const msg = encodeURIComponent('¡Hola! Necesito programar un Servicio Técnico a domicilio para un electrodoméstico ');
+            waContainer.style.cssText = "display:flex; flex-direction:column; gap:15px; align-items:center;";
+            waContainer.innerHTML = `
+                <a href="tel:315132258" aria-label="Llamar Ahora" style="background: #0ea5e9; box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.49-5.41-4.08-6.9-6.9l1.97-1.57c.26-.26.35-.63.24-1.01-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                   <span class="wa-tooltip" style="color: #0ea5e9;">Solicita tu revisión ahora</span>
+                </a>
+                <a href="https://wa.me/573151322258?text=${msg}" target="_blank" aria-label="WhatsApp">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-6.9c-18.6-29.5-28.4-64.3-28.4-100.4 0-101.3 82.3-183.7 183.7-183.7 49 0 95.1 19.1 129.8 53.8 34.7 34.7 53.8 80.8 53.8 129.8 0 101.3-82.3 183.8-183.8 183.8zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-4-10.5-6.8z"/></svg>
+                </a>
+            `;
+        }
+
+        // --- 9. POPUP PROMOCIONAL ---
+        let popupShown = false;
+        const popup = document.getElementById('promo-popup');
+        const closeBtn = document.getElementById('close-popup');
+        
+        if (popup && closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                popup.classList.remove('promo-popup-visible');
+                setTimeout(() => popup.classList.add('hidden'), 500);
+            });
+
+            window.addEventListener('scroll', () => {
+                if (!popupShown) {
+                    popupShown = true;
+                    // Retraso de 40 segundos
+                    setTimeout(() => {
+                        popup.classList.remove('hidden');
+                        setTimeout(() => popup.classList.add('promo-popup-visible'), 10);
+                    }, 40000); 
+                }
+            });
+        }
+
+        // --- 10. LÓGICA DEL ACORDEÓN FAQ (NUEVO) ---
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                const isOpen = content.style.height && content.style.height !== '0px';
+
+                // Cerrar todos los demás
+                faqButtons.forEach(otherBtn => {
+                    if (otherBtn !== btn) {
+                        otherBtn.nextElementSibling.style.height = '0px';
+                        const otherIcon = otherBtn.querySelector('i');
+                        if (otherIcon) otherIcon.classList.remove('rotate-180');
+                        otherBtn.classList.remove('bg-blue-50'); // Quitar highlight
+                    }
+                });
+
+                // Toggle actual
+                if (isOpen) {
+                    content.style.height = '0px';
+                    if (icon) icon.classList.remove('rotate-180');
+                    btn.classList.remove('bg-blue-50');
+                } else {
+                    content.style.height = content.scrollHeight + 'px';
+                    if (icon) icon.classList.add('rotate-180');
+                    btn.classList.add('bg-blue-50');
+                }
+            });
+        });
+    });
+
+    // --- 11. SLIDER DE MARCAS (LÓGICA AISLADA) ---
+    (function() {
+        const desktopData = [
+            {
+                logos: [
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1767760113/Dise%C3%B1o_sin_t%C3%ADtulo__1_-removebg-preview_1_zrisyt.png', // Electrolux
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1767760113/Dise%C3%B1o_sin_t%C3%ADtulo__2_-removebg-preview_1_vzrksf.webp', // Mabe
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1767760113/Dise%C3%B1o_sin_t%C3%ADtulo-removebg-preview_1_zsupqj.webp',     // Challenger
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1767760116/image-removebg-preview_2_1_it7wp1.webp',             // Haceb
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1767760113/Gemini_Generated_Image_as0kekas0kekas0k-removebg-preview_1_qzrzsp.webp' // Whirlpool
+                ],
+                names: ['Electrolux', 'Mabe', 'Challenger', 'Haceb', 'Whirlpool']
+            },
+            {
+                logos: [
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1767759761/image-removebg-preview_zmlgii.webp', // Samsung
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1767760113/Gemini_Generated_Image_aam4u1aam4u1aam4-removebg-preview_uv3qsx.webp', // LG
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1767760113/Dise%C3%B1o_sin_t%C3%ADtulo__4_-removebg-preview-_1__zi4ssu.webp', // Panasonic
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1767760113/Dise%C3%B1o_sin_t%C3%ADtulo__3_-removebg-preview_1_hsrl4o.webp'  // Kalley
+                ],
+                names: ['Samsung', 'LG', 'Panasonic', 'Kalley']
+            },
+            // --- NUEVAS MARCAS: DIAPOSITIVA 4 (3 Marcas) ---
+            {
+                logos: [
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1766459381/Dise%C3%B1o_sin_t%C3%ADtulo_jv3xp4.png',
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1766462528/Dise%C3%B1o_sin_t%C3%ADtulo_1_1_bry1oa.png',
+                    'https://res.cloudinary.com/djbcgcmma/image/upload/v1766463513/Liebherr__1___1_-removebg-preview_1_ef7f5r.png'
+                ],
+                names: ['THERMADOR', 'GAGGENAU', 'Liebherr']
+            }
+        ];
+        
+        let currentIndex = 0;
+        let isMobile = window.innerWidth <= 768;
+        
+        function getSlides() {
+            if (!isMobile) return desktopData;
+            // Generar slides móviles (pares)
+            const allLogos = [], allNames = [];
+            desktopData.forEach(d => { allLogos.push(...d.logos); allNames.push(...d.names); });
+            const slides = [];
+            for(let i=0; i<allLogos.length; i+=2) slides.push({ logos: allLogos.slice(i, i+2), names: allNames.slice(i, i+2) });
+            return slides;
+        }
+
+        let slidesData = getSlides();
+
+        function render() {
+            const track = document.getElementById('brandsSliderUniqueTrack');
+            const dots = document.getElementById('brandsSliderUniqueDots');
+            if(!track || !dots) return;
+
+            // Render Dots
+            dots.innerHTML = '';
+            slidesData.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.className = 'brands-slider-dot-item ' + (i === currentIndex ? 'active-dot' : '');
+                dot.onclick = () => { currentIndex = i; render(); };
+                dots.appendChild(dot);
+            });
+
+            // Render Slides
+            track.style.opacity = '0';
+            setTimeout(() => {
+                track.innerHTML = '';
+                slidesData[currentIndex].logos.forEach((logo, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'brands-slider-unique-item';
+                    div.innerHTML = `<img src="${logo}" alt="${slidesData[currentIndex].names[i]}">`;
+                    track.appendChild(div);
+                });
+                track.style.opacity = '1';
+            }, 300);
+        }
+
+        window.nextSlideBrandsUnique = () => { currentIndex = (currentIndex + 1) % slidesData.length; render(); };
+        window.prevSlideBrandsUnique = () => { currentIndex = (currentIndex - 1 + slidesData.length) % slidesData.length; render(); };
+
+        // Inicialización y eventos
+        render();
+        let brandInterval = setInterval(window.nextSlideBrandsUnique, 10000);
+        
+        window.addEventListener('resize', () => {
+            const wasMobile = isMobile;
+            isMobile = window.innerWidth <= 768;
+            if (wasMobile !== isMobile) {
+                slidesData = getSlides();
+                currentIndex = 0;
+                render();
+            }
+        });
+    })();
+            // --- 12. FORMULARIO DE CONTACTO (MEJORADO CON FORMSPREE) ---
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
+        const submitButton = document.getElementById('submitButton');
+        const btnText = document.getElementById('btnText');
+        const btnLoading = document.getElementById('btnLoading');
+
+        // *** IMPORTANTE: REEMPLAZA ESTO CON TU URL DE FORMSPREE ***
+        const FORMSPREE_URL = "https://formspree.io/f/xnjnenrq"; 
+        
+        if (contactForm && successMessage) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validación de campos obligatorios
+                const nombre = document.getElementById('nombre');
+                const telefono = document.getElementById('telefono');
+                const nombreError = document.getElementById('nombre-error');
+                const telefonoError = document.getElementById('telefono-error');
+                
+                let isValid = true;
+                
+                // Validar nombre
+                if (!nombre.value.trim()) {
+                    nombre.classList.add('border-red-500');
+                    nombreError.classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    nombre.classList.remove('border-red-500');
+                    nombreError.classList.add('hidden');
+                }
+                
+                // Validar teléfono
+                if (!telefono.value.trim()) {
+                    telefono.classList.add('border-red-500');
+                    telefonoError.classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    telefono.classList.remove('border-red-500');
+                    telefonoError.classList.add('hidden');
+                }
+                
+                // Si es válido, enviar
+                if (isValid) {
+                    // Mostrar estado de carga
+                    submitButton.disabled = true;
+                    btnText.textContent = "Enviando...";
+                    btnLoading.classList.remove('hidden');
+
+                    const formData = new FormData(contactForm);
+
+                    // Si no has puesto la URL real, mostramos una alerta para recordarte
+                    if (FORMSPREE_URL === "PON_AQUI_TU_URL_DE_FORMSPREE") {
+                        alert("⚠️ ATENCIÓN: Debes configurar tu URL de Formspree en el código para que esto funcione. \n\nPor ahora, simularemos el envío.");
+                        
+                        // Simulación (para que veas la animación)
+                        setTimeout(() => {
+                            showSuccess();
+                        }, 1500);
+                        return;
+                    }
+
+                    // Envío real a Formspree
+                    fetch(FORMSPREE_URL, {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            showSuccess();
+                        } else {
+                            response.json().then(data => {
+                                if (Object.hasOwn(data, 'errors')) {
+                                    alert(data["errors"].map(error => error["message"]).join(", "));
+                                } else {
+                                    alert("Hubo un problema al enviar el formulario.");
+                                }
+                                resetBtn();
+                            });
+                        }
+                    }).catch(error => {
+                        alert("Error de conexión. Inténtalo de nuevo.");
+                        resetBtn();
+                    });
+                }
+            });
+
+            function showSuccess() {
+                // Ocultar formulario
+                contactForm.classList.add('hidden');
+                // Mostrar mensaje de éxito
+                successMessage.classList.remove('hidden');
+                successMessage.classList.add('block');
+                
+                // Asegurar que el icono se cargue
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+
+                resetBtn();
+                
+                // Resetear formulario después de 5 segundos y volver a mostrarlo
+                setTimeout(() => {
+                    contactForm.reset();
+                    contactForm.classList.remove('hidden');
+                    successMessage.classList.add('hidden');
+                    successMessage.classList.remove('block');
+                }, 6000);
+            }
+
+            function resetBtn() {
+                submitButton.disabled = false;
+                btnText.textContent = "Enviar mensaje";
+                btnLoading.classList.add('hidden');
+            }
+            
+            // Validación en tiempo real (Input listeners)
+            const nombreInput = document.getElementById('nombre');
+            const telefonoInput = document.getElementById('telefono');
+            
+            if (nombreInput) {
+                nombreInput.addEventListener('input', function() {
+                    if (this.value.trim()) {
+                        this.classList.remove('border-red-500');
+                        document.getElementById('nombre-error').classList.add('hidden');
+                    }
+                });
+            }
+            
+            if (telefonoInput) {
+                telefonoInput.addEventListener('input', function() {
+                    if (this.value.trim()) {
+                        this.classList.remove('border-red-500');
+                        document.getElementById('telefono-error').classList.add('hidden');
+                    }
+                });
+            }
+        }
+   </script>
+</body>
+</html>

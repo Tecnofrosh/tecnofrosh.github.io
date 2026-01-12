@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- 1. SEO TÉCNICO Y LOCAL OPTIMIZADO -->
+    <title>Reparación de Estufas en Bogotá y La Sabana | TecnoFrosh</title>
+    <meta name="description" content="Servicio técnico experto en reparación de estufas a gas, eléctricas y de inducción en Bogotá y La Sabana. Atención a domicilio con garantía.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tecnofrosh.github.io/estufas.html">
+
+    <!-- Geo Tags (SEO Local) -->
+    <meta name="geo.region" content="CO-DC">
+    <meta name="geo.placename" content="Bogotá y Sabana">
+    <meta name="geo.position" content="4.710989;-74.072092">
+    <meta name="ICBM" content="4.710989, -74.072092">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Arreglo de Estufas a Gas y Eléctricas - TecnoFrosh">
+    <meta property="og:description" content="Expertos en reparación de estufas, hornos y cubiertas a domicilio en Bogotá. Atención inmediata para Haceb, Challenger, Abba y más.">
+    <meta property="og:image" content="https://res.cloudinary.com/djbcgcmma/image/upload/v1767664757/51dc153b-38e3-4b29-8565-26fc23b4da77_2_1_bokgs5.jpg">
+    <meta property="og:url" content="https://tecnofrosh.github.io/estufas.html">
+    <meta property="og:site_name" content="TecnoFrosh">
+  
+    <!-- FAVICON -->
+    <link rel="icon" href="https://res.cloudinary.com/djbcgcmma/image/upload/v1767756119/Post_de_Facebook_Logo_Vibras_simple_amarillo-removebg-preview_uuajqa.png" type="image/png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS BASE --- */
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        
+        /* --- HEADER TRANSITIONS --- */
+        #main-header { transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease; }
+        
+        /* --- BOTONES FLOTANTES --- */
+        .float-btn {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+        }
+        .float-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+        }
+        .whatsapp-pulse { animation: pulse-green 2s infinite; }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- UTILS --- */
+        .text-glow { text-shadow: 0 0 20px rgba(65, 165, 238, 0.3); }
+        .reveal-element {
+            opacity: 0; transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal-element.visible { opacity: 1; transform: translateY(0); }
+        
+        /* Grid de tarjetas */
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(65, 165, 238, 0.15);
+        }
+
+        /* Acordeón FAQ */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-item.active .faq-content {
+            max-height: 200px; /* Altura suficiente */
+        }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+        /* Modal Popup */
+        #offer-popup {
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        .popup-content {
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        #offer-popup.active .popup-content { transform: scale(1); }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800">
+
+    <!-- 1. HEADER FIJO -->
+    <nav id="main-header" class="fixed w-full z-50 top-0 text-white py-6 bg-slate-900 shadow-lg transition-all duration-300">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex flex-col items-start group">
+                <div class="flex items-center gap-2 text-2xl md:text-3xl font-black tracking-tighter transition-transform group-hover:scale-105">
+                    <i data-lucide="wrench" class="w-6 h-6 md:w-8 md:h-8 text-[#41A5EE]"></i>
+                    TecnoFrosh
+                </div>
+                <!-- Breadcrumb visual -->
+                <span class="text-[10px] uppercase tracking-[0.2em] text-gray-300 ml-10 leading-none group-hover:text-[#41A5EE] transition-colors hidden sm:block">Servicios / Estufas</span>
+            </a>
+
+            <!-- Navegación Desktop -->
+            <div class="hidden md:flex items-center space-x-8 font-medium text-sm lg:text-base">
+                <a href="index.html" class="nav-link hover:text-[#41A5EE] transition">Inicio</a>
+                
+                <!-- Dropdown -->
+                <div class="relative group" id="desktop-services">
+                    <button class="flex items-center gap-1 nav-link hover:text-[#41A5EE] transition focus:outline-none py-2 text-[#41A5EE] font-bold">
+                        Servicios <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute left-0 mt-0 w-48 bg-white text-slate-800 rounded-lg shadow-xl py-2 hidden group-hover:block border-t-4 border-[#41A5EE] transition-all duration-300 ease-out origin-top-left">
+                        <a href="lavadoras.html" class="block px-4 py-3 hover:bg-gray-50 hover:text-[#41A5EE] transition"><div class="flex items-center gap-2"><i data-lucide="waves" class="w-4 h-4"></i> Lavadoras</div></a>
+                        <a href="neveras.html" class="block px-4 py-3 hover:bg-gray-50 hover:text-[#41A5EE] transition"><div class="flex items-center gap-2"><i data-lucide="snowflake" class="w-4 h-4"></i> Neveras</div></a>
+                        <a href="calentadores.html" class="block px-4 py-3 hover:bg-gray-50 hover:text-[#41A5EE] transition"><div class="flex items-center gap-2"><i data-lucide="flame" class="w-4 h-4"></i> Calentadores</div></a>
+                        <a href="#" class="block px-4 py-3 bg-blue-50 text-[#41A5EE] font-bold"><div class="flex items-center gap-2"><i data-lucide="chef-hat" class="w-4 h-4"></i> Estufas</div></a>
+                    </div>
+                </div>
+
+                <a href="nosotros.html" class="nav-link hover:text-[#41A5EE] transition">Nosotros</a>
+                <a href="#contacto" class="nav-link hover:text-[#41A5EE] transition">Contacto</a>
+            </div>
+
+            <!-- Botón de Acción Header -->
+            <a href="tel:3151322258" class="hidden md:flex items-center gap-2 bg-[#41A5EE] hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold transition shadow-lg shadow-blue-500/30 transform hover:-translate-y-0.5">
+                <i data-lucide="phone" class="w-4 h-4 fill-current"></i>
+                <span>315 132 2258</span>
+            </a>
+
+            <!-- Botón Menú Móvil -->
+            <button id="menu-btn" class="md:hidden focus:outline-none text-white p-2 rounded-md hover:bg-white/10 transition">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 absolute w-full top-full left-0 border-t border-slate-800 h-screen p-8 transition-all">
+            <div class="flex flex-col space-y-6 text-xl text-center">
+                <a href="index.html" class="hover:text-[#41A5EE]">Inicio</a>
+                <a href="lavadoras.html" class="hover:text-[#41A5EE]">Lavadoras</a>
+                <a href="neveras.html" class="hover:text-[#41A5EE]">Neveras</a>
+                <a href="calentadores.html" class="hover:text-[#41A5EE]">Calentadores</a>
+                <a href="#" class="text-[#41A5EE] font-bold">Estufas</a>
+                <a href="nosotros.html" class="hover:text-[#41A5EE]">Nosotros</a>
+                <a href="tel:3151322258" class="bg-[#41A5EE] py-3 rounded-lg mt-4 flex justify-center gap-2 items-center text-white">
+                    <i data-lucide="phone-call" class="w-5 h-5"></i> Llamar Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION (100VH - NO SCROLL) -->
+    <header class="relative h-screen min-h-[600px] w-full bg-slate-900 overflow-hidden flex items-center justify-center">
+        <!-- Imagen de fondo -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2070&auto=format&fit=crop" alt="Reparación de Estufa Cocina en Bogotá" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-blue-900/30"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 w-full pt-20 md:pt-0">
+            <div class="flex flex-col items-center text-center max-w-4xl mx-auto reveal-element">
+                
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#41A5EE]/10 border border-[#41A5EE]/30 text-[#41A5EE] text-sm font-semibold mb-6 backdrop-blur-sm">
+                    <i data-lucide="flame" class="w-4 h-4"></i>
+                    <span>Servicio Autorizado Multimarca</span>
+                </div>
+                
+                <!-- H1 OPTIMIZADO -->
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 tracking-tight">
+                    Reparación de <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#41A5EE] to-cyan-400 text-glow">Estufas en Bogotá</span>
+                </h1>
+                
+                <!-- PARRAFO HERO OPTIMIZADO -->
+                <p class="text-base md:text-xl text-gray-300 mb-10 max-w-2xl font-light leading-relaxed">
+                    Servicio técnico especializado en reparación de estufas a <strong>gas, eléctricas y de inducción</strong> en <strong>Bogotá y municipios de La Sabana</strong>. Atención a domicilio rápida y con garantía de 12 meses.
+                </p>
+
+                <!-- Botones CTA -->
+                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                    <a href="tel:3151322258" class="px-8 py-4 bg-[#41A5EE] hover:bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-500/25 transition-all transform hover:scale-105 flex items-center justify-center gap-2 text-lg">
+                        <i data-lucide="phone-call" class="w-5 h-5"></i>
+                        Solicitar Servicio Técnico
+                    </a>
+                    <a href="https://wa.me/573125696063?text=Hola,%20necesito%20reparar%20mi%20estufa." target="_blank" class="px-8 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2 text-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        WhatsApp Inmediato
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white/50 hidden md:block">
+            <i data-lucide="chevron-down" class="w-8 h-8"></i>
+        </div>
+    </header>
+
+    <!-- 3. TIPOS DE ESTUFAS -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Tipos de Estufas que Reparamos</h2>
+                <div class="h-1 w-20 bg-[#41A5EE] mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Estufas a Gas -->
+                <div class="feature-card bg-gray-50 p-8 rounded-2xl border border-gray-100 text-center group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 text-[#41A5EE] group-hover:bg-[#41A5EE] group-hover:text-white transition-colors">
+                        <i data-lucide="flame" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Estufas a Gas</h3>
+                    <p class="text-gray-600">Ajuste de llama, limpieza de inyectores, reparación de encendido electrónico y fugas de gas.</p>
+                </div>
+
+                <!-- Estufas Eléctricas -->
+                <div class="feature-card bg-gray-50 p-8 rounded-2xl border border-gray-100 text-center group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 text-[#41A5EE] group-hover:bg-[#41A5EE] group-hover:text-white transition-colors">
+                        <i data-lucide="zap" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Estufas Eléctricas</h3>
+                    <p class="text-gray-600">Cambio de resistencias, reparación de cableado interno, termostatos y platos eléctricos.</p>
+                </div>
+
+                <!-- Inducción / Vitrocerámica -->
+                <div class="feature-card bg-gray-50 p-8 rounded-2xl border border-gray-100 text-center group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 text-[#41A5EE] group-hover:bg-[#41A5EE] group-hover:text-white transition-colors">
+                        <i data-lucide="layers" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Inducción y Vitrocerámica</h3>
+                    <p class="text-gray-600">Diagnóstico de tarjetas electrónicas, sensores de tacto y reemplazo de vidrios templados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PROBLEMAS COMUNES -->
+    <section class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="w-full lg:w-1/2 reveal-element">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://res.cloudinary.com/djbcgcmma/image/upload/v1767664757/51dc153b-38e3-4b29-8565-26fc23b4da77_2_1_bokgs5.jpg" alt="Técnico reparando estufa" class="w-full h-auto object-cover transform hover:scale-105 transition duration-700">
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2 reveal-element delay-100">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Problemas Comunes que Resolvemos</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                            <i data-lucide="x-circle" class="w-6 h-6 text-red-500 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800">El quemador no enciende</h4>
+                                <p class="text-sm text-gray-500">Fallo en chispa o bloqueo de inyectores.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                            <i data-lucide="thermometer-sun" class="w-6 h-6 text-orange-500 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Llama amarilla o irregular</h4>
+                                <p class="text-sm text-gray-500">Mala combustión que puede generar hollín y monóxido.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                            <i data-lucide="wind" class="w-6 h-6 text-gray-500 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Olor a gas</h4>
+                                <p class="text-sm text-gray-500">¡Urgente! Requiere revisión inmediata de válvulas y conexiones.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                            <i data-lucide="power-off" class="w-6 h-6 text-blue-500 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Panel digital no responde</h4>
+                                <p class="text-sm text-gray-500">Fallas electrónicas en estufas modernas o de inducción.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PROCESO Y VENTAJAS -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-16">¿Por qué elegir TecnoFrosh?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- V1 -->
+                <div class="feature-card p-6 bg-white border border-gray-100 rounded-xl shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-blue-50 rounded-bl-full -mr-10 -mt-10"></div>
+                    <i data-lucide="clock" class="w-10 h-10 text-[#41A5EE] mb-4 relative z-10"></i>
+                    <h3 class="text-xl font-bold mb-2">Visita Inmediata</h3>
+                    <p class="text-gray-600 text-sm">Técnicos disponibles en su zona para atención el mismo día.</p>
+                </div>
+                <!-- V2 -->
+                <div class="feature-card p-6 bg-white border border-gray-100 rounded-xl shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-blue-50 rounded-bl-full -mr-10 -mt-10"></div>
+                    <i data-lucide="award" class="w-10 h-10 text-[#41A5EE] mb-4 relative z-10"></i>
+                    <h3 class="text-xl font-bold mb-2">Garantía Escrita</h3>
+                    <p class="text-gray-600 text-sm">Hasta 12 meses de garantía en repuestos originales y mano de obra.</p>
+                </div>
+                <!-- V3 -->
+                <div class="feature-card p-6 bg-white border border-gray-100 rounded-xl shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-blue-50 rounded-bl-full -mr-10 -mt-10"></div>
+                    <i data-lucide="shield-check" class="w-10 h-10 text-[#41A5EE] mb-4 relative z-10"></i>
+                    <h3 class="text-xl font-bold mb-2">Seguridad Total</h3>
+                    <p class="text-gray-600 text-sm">Personal verificado y protocolos de seguridad para manejo de gas.</p>
+                </div>
+                <!-- V4 -->
+                <div class="feature-card p-6 bg-white border border-gray-100 rounded-xl shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-20 h-20 bg-blue-50 rounded-bl-full -mr-10 -mt-10"></div>
+                    <i data-lucide="credit-card" class="w-10 h-10 text-[#41A5EE] mb-4 relative z-10"></i>
+                    <h3 class="text-xl font-bold mb-2">Precio Justo</h3>
+                    <p class="text-gray-600 text-sm">Cotización transparente antes de iniciar. Sin sorpresas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FAQ (ACORDEÓN) -->
+    <section class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">Preguntas Frecuentes</h2>
+            
+            <div class="space-y-4">
+                <!-- Q1 -->
+                <div class="faq-item bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer">
+                    <div class="p-5 flex justify-between items-center bg-white hover:bg-gray-50 transition" onclick="toggleFaq(this)">
+                        <h3 class="font-bold text-lg text-slate-800">¿Reparan estufas industriales o solo domésticas?</h3>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-gray-500"></i>
+                    </div>
+                    <div class="faq-content bg-gray-50 text-gray-600 px-5">
+                        <p class="py-4">Atendemos principalmente línea hogar y equipos semi-industriales de marcas comerciales. Para equipos 100% industriales de grandes restaurantes, realizamos una evaluación previa.</p>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-item bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer">
+                    <div class="p-5 flex justify-between items-center bg-white hover:bg-gray-50 transition" onclick="toggleFaq(this)">
+                        <h3 class="font-bold text-lg text-slate-800">¿Qué costo tiene la visita de revisión?</h3>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-gray-500"></i>
+                    </div>
+                    <div class="faq-content bg-gray-50 text-gray-600 px-5">
+                        <p class="py-4">La visita tiene un costo diagnóstico. Si usted aprueba el presupuesto de reparación, ¡la revisión le sale totalmente GRATIS! Solo paga el arreglo.</p>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-item bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden cursor-pointer">
+                    <div class="p-5 flex justify-between items-center bg-white hover:bg-gray-50 transition" onclick="toggleFaq(this)">
+                        <h3 class="font-bold text-lg text-slate-800">¿Atienden domingos y festivos?</h3>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-gray-500"></i>
+                    </div>
+                    <div class="faq-content bg-gray-50 text-gray-600 px-5">
+                        <p class="py-4">Sí, contamos con servicio de emergencia para reparaciones críticas los fines de semana y festivos con cita previa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. MAPA COBERTURA (Visual) -->
+    <section class="py-20 bg-white border-t border-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8">Cobertura en Bogotá y Alrededores</h2>
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-medium text-gray-500">
+                <span class="px-4 py-2 bg-gray-100 rounded-full">📍 Norte (Usaquén, Suba)</span>
+                <span class="px-4 py-2 bg-gray-100 rounded-full">📍 Chapinero / Teusaquillo</span>
+                <span class="px-4 py-2 bg-gray-100 rounded-full">📍 Occidente (Fontibón, Kennedy)</span>
+                <span class="px-4 py-2 bg-gray-100 rounded-full">📍 Salitre / Modelia</span>
+                <span class="px-4 py-2 bg-gray-100 rounded-full">📍 Chía y Cajicá</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA FINAL -->
+    <section id="contacto" class="py-24 bg-slate-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-[#41A5EE] rounded-full blur-[150px] opacity-10"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center reveal-element">
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Cocina con <span class="text-[#41A5EE]">tranquilidad.</span></h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Deja tu estufa en manos de expertos. Agenda tu cita ahora y recibe un servicio de calidad superior.</p>
+            
+            <a href="tel:3151322258" class="inline-flex items-center gap-3 px-10 py-5 bg-[#41A5EE] hover:bg-blue-600 text-white text-xl font-bold rounded-full shadow-2xl shadow-blue-500/40 transition-all hover:scale-105">
+                <i data-lucide="wrench" class="w-6 h-6"></i>
+                Agendar Visita Técnica
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#070d1b] text-gray-400 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="flex items-center gap-2 text-2xl font-bold text-white mb-2">
+                        <i data-lucide="wrench" class="w-6 h-6 text-[#41A5EE]"></i>
+                        TecnoFrosh
+                    </div>
+                    <p class="text-sm">Especialistas en línea blanca y estufas.</p>
+                </div>
+                
+                <div class="flex gap-6 text-sm">
+                    <a href="index.html" class="hover:text-white transition">Inicio</a>
+                    <a href="lavadoras.html" class="hover:text-white transition">Lavadoras</a>
+                    <a href="neveras.html" class="hover:text-white transition">Neveras</a>
+                    <a href="calentadores.html" class="hover:text-white transition">Calentadores</a>
+                    <a href="#" class="text-white font-bold">Estufas</a>
+                </div>
+
+                <div class="text-sm">
+                    &copy; <span id="year"></span> TecnoFrosh. Derechos Reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTONES FLOTANTES (SVG OFICIALES) -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-4">
+        <!-- Botón Llamada -->
+        <a href="tel:3151322258" class="float-btn w-14 h-14 bg-[#41A5EE] rounded-full flex items-center justify-center shadow-lg text-white relative group border-2 border-white" aria-label="Llamar">
+            <!-- SVG Phone -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">Llamar ahora</span>
+        </a>
+        
+        <!-- Botón WhatsApp -->
+        <a href="https://wa.me/573125696063" target="_blank" class="float-btn whatsapp-pulse w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg text-white relative group border-2 border-white" aria-label="WhatsApp">
+            <!-- SVG WhatsApp Oficial -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-slate-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md">Chatear por WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- POPUP OFERTA (15 Segundos) -->
+    <div id="offer-popup" class="fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/80 backdrop-blur-sm opacity-0 invisible transition-all duration-300">
+        <div class="popup-content bg-white w-[90%] max-w-md p-0 rounded-2xl shadow-2xl relative overflow-hidden">
+            <!-- Close Button -->
+            <button onclick="closePopup()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 z-10 p-1 bg-white/50 rounded-full">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="flex flex-col">
+                <div class="bg-[#41A5EE] p-6 text-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-blue-600/20 pattern-dots"></div>
+                    <i data-lucide="flame" class="w-16 h-16 text-white mx-auto mb-2 relative z-10 animate-pulse"></i>
+                    <h3 class="text-2xl font-black text-white relative z-10 uppercase tracking-wide">Oferta Especial</h3>
+                    <p class="text-blue-100 text-sm relative z-10">Para Clientes de la Sabana</p>
+                </div>
+                
+                <div class="p-8 text-center">
+                    <p class="text-gray-600 mb-4">¡Evita daños costosos! Agenda hoy y recibe:</p>
+                    <div class="text-3xl font-black text-[#41A5EE] mb-2">-20% DESCUENTO</div>
+                    <p class="text-sm text-gray-500 mb-6">En tu primer mantenimiento general de estufa.</p>
+                    
+                    <a href="https://wa.me/573125696063?text=Hola,%20quiero%20el%20descuento%20del%2020%25%20en%20mantenimiento%20de%20estufa" class="block w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg shadow-lg transition-transform hover:scale-105 flex justify-center items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        Reclamar Oferta
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DATOS ESTRUCTURADOS JSON-LD (SCHEMA.ORG) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Reparación de Estufas en Bogotá y Cundinamarca",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "TecnoFrosh",
+        "image": "https://res.cloudinary.com/djbcgcmma/image/upload/v1767756119/Post_de_Facebook_Logo_Vibras_simple_amarillo-removebg-preview_uuajqa.png",
+        "telephone": "+573151322258",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bogotá",
+          "addressRegion": "Cundinamarca",
+          "addressCountry": "CO"
+        }
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Bogotá y La Sabana"
+      },
+      "description": "Servicio técnico especializado en reparación de estufas a gas y eléctricas a domicilio en Bogotá y La Sabana. Atención inmediata y garantía de hasta 12 meses.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Reparación de Estufas",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mantenimiento Estufas a Gas"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Reparación de Encendido Eléctrico"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cambio de Inyectores y Válvulas"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- BREADCRUMB SCHEMA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://tecnofrosh.github.io/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Reparación de Estufas",
+        "item": "https://tecnofrosh.github.io/estufas.html"
+      }]
+    }
+    </script>
+
+    <!-- SCRIPTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            initHeader();
+            initAnimations();
+            initPopup();
+        });
+
+        // 1. HEADER LOGIC
+        function initHeader() {
+            const header = document.getElementById('main-header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('py-4', 'shadow-lg');
+                    header.classList.remove('py-6');
+                } else {
+                    header.classList.add('py-6');
+                    header.classList.remove('py-4', 'shadow-lg');
+                }
+            });
+            
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // 2. ANIMACIONES ON SCROLL
+        function initAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
+        }
+
+        // 3. LOGICA ACORDEON
+        function toggleFaq(header) {
+            const item = header.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Cerrar todos
+            document.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('active');
+            });
+
+            // Abrir clickeado si no estaba activo
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // 4. LOGICA POPUP
+        function initPopup() {
+            // Mostrar a los 15 segundos
+            setTimeout(() => {
+                const popup = document.getElementById('offer-popup');
+                // Solo mostrar si no se ha cerrado antes (opcional, aquí siempre muestra para demo)
+                popup.classList.remove('invisible', 'opacity-0');
+                popup.classList.add('active');
+            }, 15000);
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('offer-popup');
+            popup.classList.remove('active');
+            popup.classList.add('opacity-0');
+            setTimeout(() => {
+                popup.classList.add('invisible');
+            }, 300);
+        }
+    </script>
+</body>
+</html>
