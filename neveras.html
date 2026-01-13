@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Reparación de Neveras y Nevecones en Bogotá | TecnoFrosh</title>
+    <meta name="description" content="¿Tu nevera no enfría o congela todo? Servicio técnico experto en neveras Samsung, LG y Whirlpool en Bogotá y La Sabana. Carga de gas y repuestos originales. ¡Agenda ya!">
+    <meta name="keywords" content="arreglo neveras bogota, reparacion nevecones samsung, tecnico neveras lg, carga de gas nevera, mantenimiento refrigeradores">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tecnofrosh.github.io/neveras.html">
+
+    <meta name="geo.region" content="CO-DC">
+    <meta name="geo.placename" content="Bogotá">
+    <meta name="geo.position" content="4.710989;-74.072092">
+    <meta name="ICBM" content="4.710989, -74.072092">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Arreglo de Neveras y Nevecones en Bogotá - TecnoFrosh">
+    <meta property="og:description" content="Expertos en refrigeración. Vamos a tu casa hoy mismo. Garantía por escrito en reparación de neveras.">
+    <meta property="og:image" content="https://res.cloudinary.com/djbcgcmma/image/upload/v1767663285/1706dd2e-783d-4bd3-8ff6-add806f1fab4_1_wklcgt.jpg">
+    <meta property="og:url" content="https://tecnofrosh.github.io/neveras.html">
+    <meta property="og:site_name" content="TecnoFrosh">
+
+    <link rel="icon" href="https://res.cloudinary.com/djbcgcmma/image/upload/v1767756119/Post_de_Facebook_Logo_Vibras_simple_amarillo-removebg-preview_uuajqa.png" type="image/png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS BASE --- */
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; 
+            position: relative;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* --- HEADER TRANSITIONS --- */
+        #main-header { transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease; }
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
+            background-color: #41A5EE; transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* --- HERO SECTION --- */
+        .hero-bg {
+            background-image: url('https://res.cloudinary.com/dzc1wy6aq/image/upload/v1764956470/Whisk_4d5c4a59028c883886b45ae5daf84a17dr-_2__q9pl4x.webp');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7), rgba(65, 165, 238, 0.2));
+        }
+
+        /* --- ANIMACIONES REVEAL --- */
+        .reveal-element { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal-element.visible { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+
+        /* --- ACORDEÓN MULTIMEDIA --- */
+        .accordion-item { transition: all 0.4s ease; border-left: 4px solid transparent; }
+        .accordion-item.active { background-color: #f8fafc; border-left-color: #41A5EE; padding-left: 1.5rem; }
+        .accordion-item.active h3 { color: #41A5EE; }
+        
+        .media-display-container {
+            position: relative; overflow: hidden; border-radius: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .media-slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; transition: opacity 0.6s ease-in-out; pointer-events: none; z-index: 0;
+        }
+        .media-slide.active { opacity: 1; pointer-events: all; z-index: 10; }
+        
+        /* Botón Play Personalizado */
+        .play-btn { transition: transform 0.3s ease, background-color 0.3s ease; }
+        .play-btn:hover { transform: scale(1.1); background-color: #ef4444; }
+
+        /* --- POPUP PROMOCIONAL --- */
+        #promo-popup-neveras { transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; }
+        .promo-popup-visible { opacity: 1 !important; visibility: visible !important; }
+        .promo-content { transform: scale(0.95); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .promo-popup-visible .promo-content { transform: scale(1); }
+        .whatsapp-btn-pulse { animation: pulse-green 2s infinite; }
+        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        /* --- UTILS --- */
+        .text-glow { text-shadow: 0 0 20px rgba(65, 165, 238, 0.4); }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
+    <nav id="main-header" class="fixed w-full z-50 top-0 text-white py-6 bg-transparent">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="index.html" class="flex flex-col items-start group">
+                <div class="flex items-center gap-2 text-2xl md:text-3xl font-black tracking-tighter transition-transform group-hover:scale-105">
+                    <i data-lucide="wrench" class="w-6 h-6 md:w-8 md:h-8 text-[#41A5EE]"></i>
+                    TecnoFrosh
+                </div>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-cyan-300 ml-10 leading-none group-hover:text-white transition-colors hidden sm:block">Servicios / Neveras</span>
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8 font-medium text-sm lg:text-base">
+                <a href="index.html" class="nav-link hover:text-[#41A5EE] transition">Inicio</a>
+                
+                <div class="relative group">
+                    <button class="flex items-center gap-1 nav-link hover:text-[#41A5EE] transition focus:outline-none py-2">
+                        Servicios <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute left-0 mt-0 w-48 bg-white text-slate-800 rounded-lg shadow-xl py-2 hidden group-hover:block border-t-4 border-[#41A5EE] transform origin-top-left transition-all">
+                        <a href="lavadoras.html" class="block px-4 py-3 hover:bg-gray-50 hover:text-[#41A5EE] transition"><div class="flex items-center gap-2"><i data-lucide="waves" class="w-4 h-4"></i> Lavadoras</div></a>
+                        <a href="#" class="block px-4 py-3 bg-blue-50 text-[#41A5EE] font-bold cursor-default"><div class="flex items-center gap-2"><i data-lucide="snowflake" class="w-4 h-4"></i> Neveras</div></a>
+                        <a href="calentadores.html" class="block px-4 py-3 hover:bg-gray-50 hover:text-[#41A5EE] transition"><div class="flex items-center gap-2"><i data-lucide="flame" class="w-4 h-4"></i> Calentadores</div></a>
+                        <a href="estufas.html" class="block px-4 py-3 hover:bg-gray-50 hover:text-[#41A5EE] transition"><div class="flex items-center gap-2"><i data-lucide="chef-hat" class="w-4 h-4"></i> Estufas</div></a>
+                    </div>
+                </div>
+
+                <a href="nosotros.html" class="nav-link hover:text-[#41A5EE] transition">Nosotros</a>
+                <a href="#contacto" class="nav-link hover:text-[#41A5EE] transition">Contacto</a>
+            </div>
+
+            <a href="tel:3151322258" class="hidden md:flex items-center gap-2 bg-[#41A5EE] hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold transition shadow-lg shadow-blue-500/30 transform hover:-translate-y-0.5">
+                <i data-lucide="phone" class="w-4 h-4 fill-current"></i>
+                <span>315 132 2258</span>
+            </a>
+
+            <button id="menu-btn" class="md:hidden focus:outline-none text-white p-2 rounded-md hover:bg-white/10 transition">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-lg absolute w-full top-full left-0 border-t border-slate-800 shadow-2xl h-screen z-40">
+            <div class="flex flex-col p-8 space-y-6 text-center text-lg text-white">
+                <a href="index.html" class="hover:text-[#41A5EE] transition py-2 border-b border-gray-700">Inicio</a>
+                <a href="lavadoras.html" class="hover:text-[#41A5EE] transition py-2 border-b border-gray-700">Lavadoras</a>
+                <span class="text-[#41A5EE] font-bold py-2 border-b border-gray-700">Reparación Neveras</span>
+                <a href="calentadores.html" class="hover:text-[#41A5EE] transition py-2 border-b border-gray-700">Calentadores</a>
+                <a href="estufas.html" class="hover:text-[#41A5EE] transition py-2 border-b border-gray-700">Estufas</a>
+                <a href="nosotros.html" class="hover:text-[#41A5EE] transition py-2 border-b border-gray-700">Nosotros</a>
+                <a href="#contacto" class="hover:text-[#41A5EE] transition py-2 border-b border-gray-700">Contacto</a>
+                <a href="tel:3151322258" class="bg-[#41A5EE] text-white py-4 rounded-xl font-bold hover:bg-blue-600 transition mt-4 shadow-lg flex items-center justify-center gap-2">
+                    <i data-lucide="phone-call" class="w-5 h-5"></i> Llamar Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-[75vh] md:min-h-[90vh] w-full overflow-hidden hero-bg flex items-center">
+        <div class="absolute inset-0 hero-overlay"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 pt-24 md:pt-32 pb-8 md:pb-10">
+            <div class="max-w-4xl text-white">
+                <div class="inline-flex items-center gap-2 bg-[#41A5EE]/20 backdrop-blur-md border border-[#41A5EE]/30 rounded-full px-4 py-1 mb-3 md:mb-6 reveal-element">
+                    <i data-lucide="snowflake" class="w-4 h-4 text-cyan-300"></i>
+                    <span class="text-xs md:text-sm font-semibold text-cyan-100 uppercase tracking-wider">Expertos en Refrigeración</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl lg:text-8xl font-black leading-tight mb-3 md:mb-6 reveal-element delay-100 tracking-tight">
+                    Reparación de <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-[#41A5EE] text-glow">Neveras en Bogotá</span>
+                </h1>
+                
+                <p class="text-sm md:text-xl text-gray-200 mb-5 md:mb-8 max-w-2xl leading-relaxed reveal-element delay-200">
+                    Tu nevera o nevecon enfría de nuevo con nuestro servicio certificado. Solucionamos fallas de temperatura, carga de gas y tarjeta en <strong>Bogotá, Chía y Soacha</strong>. Visita a domicilio hoy.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-3 md:gap-4 reveal-element delay-300">
+                    <a href="#contacto" class="flex items-center justify-center gap-2 md:gap-3 bg-[#41A5EE] hover:bg-blue-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-2xl font-bold text-base md:text-lg transition shadow-xl shadow-blue-500/30 w-full sm:w-auto transform hover:scale-105">
+                        <i data-lucide="calendar-check" class="w-5 h-5 md:w-6 md:h-6"></i>
+                        Agendar Visita
+                    </a>
+                    <a href="#proceso" class="flex items-center justify-center gap-2 md:gap-3 bg-white/10 hover:bg-white/20 text-white border border-white/30 px-6 py-3 md:px-8 md:py-4 rounded-2xl font-bold text-base md:text-lg transition backdrop-blur-md w-full sm:w-auto">
+                        Ver Proceso
+                        <i data-lucide="arrow-down" class="w-5 h-5 md:w-6 md:h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-white py-10 border-b border-gray-100">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-gray-400 text-xs font-bold uppercase tracking-widest mb-8">Especialistas en sistemas de frío</p>
+            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+              <img src="https://res.cloudinary.com/djbcgcmma/image/upload/v1767759761/image-removebg-preview_zmlgii.webp" alt="Reparación Neveras Samsung Bogotá" class="h-6 md:h-8 object-contain" loading="lazy">
+                <img src="https://res.cloudinary.com/djbcgcmma/image/upload/v1767760113/Gemini_Generated_Image_aam4u1aam4u1aam4-removebg-preview_uv3qsx.webp" alt="Servicio Técnico Neveras LG" class="h-8 md:h-10 object-contain" loading="lazy">
+                <img src="https://res.cloudinary.com/djbcgcmma/image/upload/v1767760113/Gemini_Generated_Image_as0kekas0kekas0k-removebg-preview_1_qzrzsp.webp" alt="Arreglo de Neveras Whirlpool" class="h-10 md:h-12 object-contain" loading="lazy">
+                <img src="https://res.cloudinary.com/djbcgcmma/image/upload/v1767760113/Dise%C3%B1o_sin_t%C3%ADtulo__2_-removebg-preview_1_vzrksf.webp" alt="Técnico Neveras Mabe" class="h-5 md:h-7 object-contain" loading="lazy">
+                <img src="https://res.cloudinary.com/djbcgcmma/image/upload/v1767760116/image-removebg-preview_2_1_it7wp1.webp" alt="Servicio Técnico Haceb" class="h-6 md:h-8 object-contain" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <section id="proceso" class="py-24 bg-slate-50 overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal-element">
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-4">Proceso de <span class="text-[#41A5EE]">Reparación</span></h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Transparencia total en cada paso del servicio técnico en Bogotá.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8 h-auto lg:h-[500px]">
+                
+                <div class="w-full lg:w-3/5 h-[300px] lg:h-full media-display-container bg-slate-900 relative reveal-element">
+                    
+                    <div class="media-slide active" id="media-0">
+                        <img src="https://res.cloudinary.com/dzc1wy6aq/image/upload/v1764959708/Dise%C3%B1o-sin-t%C3%ADtulo-_8__1_kcxrsy.webp" alt="Diagnóstico Nevera" class="w-full h-full object-cover opacity-60" loading="lazy">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button onclick="playVideo('video-0', 'VMz5luIeAJ8')" class="play-btn w-20 h-20 bg-[#41A5EE] rounded-full flex items-center justify-center shadow-2xl cursor-pointer z-20 group">
+                                <i data-lucide="play" class="w-8 h-8 text-white fill-white ml-1"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Paso 1</span>
+                            <h3 class="text-white text-2xl font-bold mt-2">Diagnóstico Preciso</h3>
+                        </div>
+                        <div id="video-0" class="absolute inset-0 z-30 hidden bg-black"></div>
+                    </div>
+
+                    <div class="media-slide" id="media-1">
+                        <img src="https://res.cloudinary.com/dzc1wy6aq/image/upload/v1764960983/Dise%C3%B1o-sin-t%C3%ADtulo-_9__pwuwdz.webp" alt="Reparación Nevera" class="w-full h-full object-cover opacity-60" loading="lazy">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button onclick="playVideo('video-1', 'B_HITnSUvbc')" class="play-btn w-20 h-20 bg-[#41A5EE] rounded-full flex items-center justify-center shadow-2xl cursor-pointer z-20 group">
+                                <i data-lucide="play" class="w-8 h-8 text-white fill-white ml-1"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <span class="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Paso 2</span>
+                            <h3 class="text-white text-2xl font-bold mt-2">Reparación Experta</h3>
+                        </div>
+                        <div id="video-1" class="absolute inset-0 z-30 hidden bg-black"></div>
+                    </div>
+
+                    <div class="media-slide" id="media-2">
+                        <img src="https://res.cloudinary.com/dzc1wy6aq/image/upload/v1764961503/Dise%C3%B1o_sin_t%C3%ADtulo_10_2_toi52n.jpg" alt="Carga de Gas Nevera" class="w-full h-full object-cover opacity-60" loading="lazy">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <button onclick="playVideo('video-2', 'fhdmMWPO8kQ')" class="play-btn w-20 h-20 bg-[#41A5EE] rounded-full flex items-center justify-center shadow-2xl cursor-pointer z-20 group">
+                                <i data-lucide="play" class="w-8 h-8 text-white fill-white ml-1"></i>
+                            </button>
+                        </div>
+                        <div class="absolute bottom-6 left-6 z-20">
+                            <span class="bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Paso 3</span>
+                            <h3 class="text-white text-2xl font-bold mt-2">Carga de Gas y Pruebas</h3>
+                        </div>
+                        <div id="video-2" class="absolute inset-0 z-30 hidden bg-black"></div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-2/5 flex flex-col justify-center space-y-4 reveal-element delay-100">
+                    <div class="accordion-item active cursor-pointer p-4 rounded-xl hover:bg-slate-50" onclick="manualActivate(0)">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center shrink-0 mt-1">
+                                <i data-lucide="stethoscope" class="w-5 h-5 text-[#41A5EE]"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 mb-1">Revisión Técnica</h3>
+                                <p class="text-gray-500 text-sm leading-relaxed">Identificamos la causa raíz: fallo en compresor, termostato, tarjeta o fuga de gas. Usamos equipos de medición digital.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item cursor-pointer p-4 rounded-xl hover:bg-slate-50" onclick="manualActivate(1)">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center shrink-0 mt-1">
+                                <i data-lucide="wrench" class="w-5 h-5 text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 mb-1">Reparación In Situ</h3>
+                                <p class="text-gray-500 text-sm leading-relaxed">El 90% de los trabajos se hacen en tu cocina. Cambiamos repuestos dañados por originales certificados.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item cursor-pointer p-4 rounded-xl hover:bg-slate-50" onclick="manualActivate(2)">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center shrink-0 mt-1">
+                                <i data-lucide="wind" class="w-5 h-5 text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 mb-1">Carga de Gas y Vacío</h3>
+                                <p class="text-gray-500 text-sm leading-relaxed">Si no enfría, realizamos barrido del sistema, vacío profundo y carga de gas refrigerante R600a o R134a.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full h-1 bg-gray-200 rounded-full mt-4 overflow-hidden">
+                        <div id="progress-bar" class="h-full bg-[#41A5EE] w-0 transition-all duration-100 ease-linear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal-element">
+                <span class="text-[#41A5EE] font-bold tracking-wide uppercase text-sm">Diagnóstico Rápido</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mt-2 mb-4">Fallas comunes en <span class="text-[#41A5EE]">refrigeración</span></h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Solucionamos estos y otros problemas en neveras y nevecones en Bogotá.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-8 rounded-3xl border border-gray-100 bg-white shadow-lg hover:shadow-xl transition hover:-translate-y-2 reveal-element">
+                    <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="thermometer-snowflake" class="w-7 h-7 text-red-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">No Enfría</h3>
+                    <p class="text-gray-500 text-sm">El motor suena pero no baja la temperatura. Posible falta de gas o falla en el arranque.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-100 bg-white shadow-lg hover:shadow-xl transition hover:-translate-y-2 reveal-element delay-100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="droplets" class="w-7 h-7 text-blue-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Gotea Agua</h3>
+                    <p class="text-gray-500 text-sm">Charcos de agua dentro o debajo de la nevera. Desagües obstruidos o empaques rotos.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-100 bg-white shadow-lg hover:shadow-xl transition hover:-translate-y-2 reveal-element delay-200">
+                    <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="volume-2" class="w-7 h-7 text-orange-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Ruidos Extraños</h3>
+                    <p class="text-gray-500 text-sm">Sonidos metálicos, vibraciones fuertes o clics constantes. Problemas en ventilador o compresor.</p>
+                </div>
+                <div class="p-8 rounded-3xl border border-gray-100 bg-white shadow-lg hover:shadow-xl transition hover:-translate-y-2 reveal-element delay-300">
+                    <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mb-6">
+                        <i data-lucide="snowflake" class="w-7 h-7 text-slate-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Congela Abajo</h3>
+                    <p class="text-gray-500 text-sm">Los alimentos en la parte de conservación se congelan. Falla en termostato o damper.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 bg-slate-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#41A5EE 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center text-white">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Salva tus alimentos hoy mismo</h2>
+            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10">No dejes que se dañe tu mercado. Un técnico experto en refrigeración está listo para visitarte en Bogotá.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="tel:3151322258" class="bg-[#41A5EE] hover:bg-blue-600 text-white px-10 py-4 rounded-full font-black text-xl shadow-xl shadow-blue-500/30 transition transform hover:scale-105 flex items-center gap-2">
+                    <i data-lucide="phone" class="w-6 h-6"></i>
+                    Llamar: 315 132 2258
+                </a>
+                <a href="https://wa.me/573151322258" target="_blank" class="bg-[#25D366] hover:bg-[#1ebc57] text-white px-10 py-4 rounded-full font-black text-xl shadow-xl shadow-green-500/30 transition transform hover:scale-105 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#070d1b] text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="flex items-center gap-2 text-2xl font-bold text-white mb-2">
+                        <i data-lucide="wrench" class="w-6 h-6 text-[#41A5EE]"></i>
+                        TecnoFrosh
+                    </div>
+                    <p class="text-sm">Especialistas en refrigeración y lavado en Bogotá.</p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-sm md:text-base">
+                    <a href="index.html" class="hover:text-white transition">Inicio</a>
+                    <a href="lavadoras.html" class="hover:text-white transition">Lavadoras</a>
+                    <a href="#" class="text-white font-bold transition">Neveras</a>
+                    <a href="calentadores.html" class="hover:text-white transition">Calentadores</a>
+                    <a href="estufas.html" class="hover:text-white transition">Estufas</a>
+                    <a href="nosotros.html" class="hover:text-white transition">Nosotros</a>
+                </div>
+
+                <div class="text-sm">
+                    &copy; <span id="year"></span> TecnoFrosh. Derechos Reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 right-6 z-[9999] flex flex-col gap-4">
+        <a href="tel:3151322258" class="group relative flex items-center justify-center w-14 h-14 bg-[#41A5EE] hover:bg-blue-600 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110">
+            <i data-lucide="phone" class="w-6 h-6 text-white"></i>
+        </a>
+        <a href="https://wa.me/573151322258?text=Hola%20necesito%20ayuda%20con%20la%20reparación%20de%20mi%20nevera" target="_blank" class="group relative flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#1DA851] rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </a>
+    </div>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Reparación de Neveras",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "TecnoFrosh",
+        "image": "https://res.cloudinary.com/djbcgcmma/image/upload/v1767756119/Post_de_Facebook_Logo_Vibras_simple_amarillo-removebg-preview_uuajqa.png",
+        "telephone": "+573151322258",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bogotá",
+          "addressRegion": "Cundinamarca",
+          "addressCountry": "CO"
+        }
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Bogotá" },
+        { "@type": "City", "name": "Chía" },
+        { "@type": "City", "name": "Soacha" },
+        { "@type": "City", "name": "Cota" },
+        { "@type": "City", "name": "Cajicá" }
+      ],
+      "description": "Servicio técnico especializado en reparación de neveras a domicilio en Bogotá. Atención para neveras Samsung, LG, Whirlpool, Haceb y más.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Refrigeración",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Carga de Gas Refrigerante"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cambio de Compresor"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mantenimiento Preventivo de Neveras"
+            }
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "112"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://tecnofrosh.github.io/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Reparación de Neveras",
+        "item": "https://tecnofrosh.github.io/neveras.html"
+      }]
+    }
+    </script>
+
+    <script>
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('bg-transparent', 'py-6');
+                header.classList.add('bg-slate-900', 'shadow-lg', 'py-4');
+            } else {
+                header.classList.add('bg-transparent', 'py-6');
+                header.classList.remove('bg-slate-900', 'shadow-lg', 'py-4');
+            }
+        });
+
+        const revealElements = document.querySelectorAll('.reveal-element');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal-element').forEach(el => revealObserver.observe(el));
+
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            document.body.style.overflow = mobileMenu.classList.contains('hidden') ? 'auto' : 'hidden';
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Lógica del acordeón y video
+        let currentSlide = 0;
+        const totalSlides = 3;
+        let slideInterval;
+        const progressBar = document.getElementById('progress-bar');
+        const slideDuration = 10000;
+
+        function showSlide(index) {
+            document.querySelectorAll('.media-slide').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+            document.querySelectorAll('iframe').forEach(iframe => { iframe.src = iframe.src; }); // Detener video
+            document.querySelectorAll('[id^="video-"]').forEach(v => v.classList.add('hidden'));
+
+            document.getElementById(`media-${index}`).classList.add('active');
+            document.querySelectorAll('.accordion-item')[index].classList.add('active');
+            
+            currentSlide = index;
+            resetProgressBar();
+        }
+
+        function startProgressBar() {
+            if(!progressBar) return;
+            progressBar.style.width = '0%';
+            setTimeout(() => progressBar.style.width = '100%', 100);
+        }
+
+        function resetProgressBar() {
+            if(!progressBar) return;
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            setTimeout(() => {
+                progressBar.style.transition = `width ${slideDuration}ms linear`;
+                startProgressBar();
+            }, 50);
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % totalSlides;
+            showSlide(next);
+        }
+
+        function startAutoPlay() {
+            startProgressBar();
+            slideInterval = setInterval(nextSlide, slideDuration);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(slideInterval);
+            if(progressBar) {
+                progressBar.style.width = '100%';
+                progressBar.style.transition = 'width 0.3s ease';
+            }
+        }
+
+        window.manualActivate = function(index) {
+            stopAutoPlay();
+            showSlide(index);
+        }
+
+        window.playVideo = function(containerId, videoId) {
+            stopAutoPlay();
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            container.classList.remove('hidden');
+            container.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&rel=0&playsinline=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        }
+
+        startAutoPlay();
+
+        // Popup Neveras
+        const popupNeveras = document.getElementById('promo-popup-neveras');
+        const closeBtnNeveras = document.getElementById('close-popup-neveras');
+        if (popupNeveras && closeBtnNeveras) {
+            closeBtnNeveras.addEventListener('click', () => {
+                popupNeveras.classList.remove('promo-popup-visible');
+                setTimeout(() => popupNeveras.classList.add('hidden'), 500);
+            });
+            setTimeout(() => {
+                popupNeveras.classList.remove('hidden');
+                setTimeout(() => popupNeveras.classList.add('promo-popup-visible'), 10);
+            }, 20000);
+        }
+    </script>
+</body>
+</html>
