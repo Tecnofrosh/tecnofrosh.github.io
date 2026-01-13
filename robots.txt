@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Sitemap Location
+# Mapa del sitio para Google
 Sitemap: https://tecnofrosh.github.io/sitemap.xml
